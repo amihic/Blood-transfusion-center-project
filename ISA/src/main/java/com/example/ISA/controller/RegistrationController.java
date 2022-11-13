@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.ISA.DTO.UserRegistrationDTO;
 import com.example.ISA.model.User;
 import com.example.ISA.repository.RegistrationRepository;
 import com.example.ISA.service.RegistrationService;
@@ -27,8 +28,8 @@ public class RegistrationController {
 	
 	//sacuvaj usera
 	@RequestMapping(value="api/registration",method = RequestMethod.POST, consumes= MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<User> save(@RequestBody User user) throws Exception{
-		User newUser = this.registrationService.save(user);
+	public ResponseEntity<User> save(@RequestBody UserRegistrationDTO userDTO) throws Exception{
+		User newUser = this.registrationService.save(userDTO);
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 	}
 	

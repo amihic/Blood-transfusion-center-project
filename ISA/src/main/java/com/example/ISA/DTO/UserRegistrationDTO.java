@@ -1,78 +1,52 @@
-package com.example.ISA.model;
+package com.example.ISA.DTO;
 
-
-import java.util.*;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import javax.persistence.OneToOne;
+import com.example.ISA.model.GenderType;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+public class UserRegistrationDTO {
 
-
-
-@Entity( name = "MedUser" )
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-   
-    @Column
+	
+	private int id;
+	   
     private String email;
    
-    @Column
-    private String password;
+    private String password1;
     
-    @Column
+    private String password2;
+    
     private String firstName;
    
-    @Column
     private String lastName;
    
-    //@OneToOne(fetch = FetchType.EAGER)
-    @Column
     private String address;
     
-    @Column
     private String city;
     
-    @Column
     private String country;
    
-    @Column
     private String phoneNumber;
    
-    @Column
     private String jmbg;
    
-   
-    @Column
     private GenderType gender;
    
-    @Column
     private String job;
    
-    @Column
     private String info;
     
    
-	public User() {
+	public UserRegistrationDTO() {
 		super();
 	}
 
-	public User(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
+	public UserRegistrationDTO(int id, String email, String password1, String password2, String firstName, String lastName, String address, String city, String country,
 			String phoneNumber, String jmbg, GenderType gender, String job, String info) {
 		super();
 		this.id = id;
 		this.email = email;
-		this.password = password;
+		this.password1 = password1;
+		this.password2 = password2;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -101,12 +75,21 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPassword1() {
+		return password1;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword1(String password1) {
+		this.password1 = password1;
+	}
+	
+
+	public String getPassword2() {
+		return password2;
+	}
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
 	}
 
 	public String getFirstName() {
@@ -190,7 +173,4 @@ public class User {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-   
-   
-
 }

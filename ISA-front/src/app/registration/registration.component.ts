@@ -3,6 +3,7 @@ import { User } from '../model/user';
 import { RegistrationService } from '../service/registration.service';
 
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -13,19 +14,22 @@ export class RegistrationComponent implements OnInit {
   newUser:User;
   users:User[];
 
+
   constructor(private registrationService:RegistrationService) {
     this.newUser = new User
       (
         {
           id: 1,
           email: "",
-          password:"",
+          password1:"",
+          password2:"",
           firstName:"",
           lastName: "",
           address:"",
+          city:"",
+          country:"",
           phoneNumber:"",
           jmbg: "",
-          dateOfBirth:"",
           gender:"",
           job:"",
           info:""
@@ -33,7 +37,10 @@ export class RegistrationComponent implements OnInit {
         }
       );
      this.users=[]; 
+
    }
+
+
 
   ngOnInit(): void {
   }
@@ -46,11 +53,12 @@ export class RegistrationComponent implements OnInit {
 
   registration()
   {
-    
     console.log(this.newUser)
     this.registrationService.registration(this.newUser)
     .subscribe(_=>this.reloadData());
   }
+  
+  
 
 
 }

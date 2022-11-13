@@ -20,6 +20,7 @@ export class RegistrationService
   
   registration(newUser:User):Observable<User>
   {
+    
     return this.http.post<User>(this.url,newUser);
   }
 
