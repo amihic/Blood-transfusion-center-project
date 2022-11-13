@@ -1,4 +1,6 @@
 package com.example.ISA.model;
+
+
 import java.util.*;
 
 import javax.persistence.CascadeType;
@@ -8,10 +10,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+
+
 @Entity( name = "MedUser" )
-public abstract class User {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +36,9 @@ public abstract class User {
     @Column
     private String lastName;
    
-    @OneToOne(fetch = FetchType.EAGER)
-    private Address address;
+    //@OneToOne(fetch = FetchType.EAGER)
+    @Column
+    private String address;
    
     @Column
     private String phoneNumber;
@@ -55,7 +63,7 @@ public abstract class User {
 		super();
 	}
 
-	public User(int id, String email, String password, String firstName, String lastName, Address address,
+	public User(int id, String email, String password, String firstName, String lastName, String address,
 			String phoneNumber, String jmbg, Date dateOfBirth, GenderType gender, String job, String info) {
 		super();
 		this.id = id;
@@ -112,11 +120,11 @@ public abstract class User {
 		this.lastName = lastName;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 

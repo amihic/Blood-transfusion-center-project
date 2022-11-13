@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<form action="/action_page.php">
+  <div class="container">
+    <h1>Registration</h1>
+    
+    
+    <div class = "new-user">
+        <form>
+            <hr>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" id="email" name="email" [(ngModel)]="newUser.email" required >
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="password" name="password" [(ngModel)]="newUser.password" required>
+
+    <label for="firstName"><b>First name</b></label>
+    <input type="text" placeholder="Enter first name" id="firstName" name="firstName" [(ngModel)]="newUser.firstName" required>
+
+    <label for="lastName"><b>Last name</b></label>
+    <input type="text" placeholder="Enter last name" id="lastName" name="lastName" [(ngModel)]="newUser.lastName" required >
+
+    <label for="address"><b>Address</b></label>
+    <input type="text" placeholder="Enter address" id="address" name="address" [(ngModel)]="newUser.address" required >
+
+    <label for="phoneNumber"><b>Phone number</b></label>
+    <input type="text" placeholder="Enter phone number" id="phoneNumber" name="phoneNumber" [(ngModel)]="newUser.phoneNumber" required >
+
+    <label for="jmbg"><b>JMBG</b></label>
+    <input type="text" placeholder="Enter jmbg" id="jmbg" name="jmbg" [(ngModel)]="newUser.jmbg" required >
+
+    <label for="dateOfBirth"><b>Date of birth</b></label> 
+    <h1></h1>       
+    <input [matDatepicker]="myDatepicker" name="date" [(ngModel)]="newUser.dateOfBirth">
+    <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+    <h1></h1>
+
+    <label for="gender"><b>Gender</b></label>
+    <h1></h1>    
+    <input type="radio" value="male" [(ngModel)]="newUser.gender" name="gender" > MALE
+    <input type="radio" value="female" [(ngModel)]="newUser.gender" name="gender"> FEMALE
+    
+    <h1></h1>
+    <label for="job"><b>Job</b></label>
+    <input type="text" placeholder="Enter job" id="address" name="job" [(ngModel)]="newUser.job" required >
+
+    <label for="info"><b>Informations</b></label>
+    <input type="text" placeholder="Enter your informations" id="info" name="info" [(ngModel)]="newUser.info" required >
+
+    <hr>
+        </form>
+    </div>
+
+    <button type="submit" class="registerbtn" (click)="registration()">Register</button>
+  </div>
+  
+  <div class="container signin">
+    <p>Already have an account? <a href="login">Sign in</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
