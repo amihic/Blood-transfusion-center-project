@@ -19,10 +19,16 @@ public class MedCenter {
     private int id;
    
     @Column
-    private String centerName;
+    private String name;
    
-    @OneToOne(fetch = FetchType.EAGER)
-    private Address address;
+    @Column
+    private String street;
+    
+    @Column
+    private String city;
+    
+    @Column
+    private String country;
    
     @Column
     private String description;
@@ -42,12 +48,14 @@ public class MedCenter {
 		super();
 	}
 	
-	public MedCenter(int id, String centerName, Address address, String description, Set<Rating> rating,
+	public MedCenter(int id, String name, String street, String city, String country, String description, Set<Rating> rating,
 			Set<Appointment> availableAppointments, Set<AdminEmployee> adminEmployees) {
 		super();
 		this.id = id;
-		this.centerName = centerName;
-		this.address = address;
+		this.name = name;
+		this.street = street;
+		this.city = city;
+		this.country = country;
 		this.description = description;
 		this.rating = rating;
 		this.availableAppointments = availableAppointments;
@@ -62,22 +70,40 @@ public class MedCenter {
 		this.id = id;
 	}
 	
-	public String getCenterName() {
-		return centerName;
+	public String getName() {
+		return name;
 	}
 	
-	public void setCenterName(String centerName) {
-		this.centerName = centerName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public Address getAddress() {
-		return address;
+	public String getStreet() {
+		return street;
 	}
 	
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 	
+	
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
 	public String getDescription() {
 		return description;
 	}
