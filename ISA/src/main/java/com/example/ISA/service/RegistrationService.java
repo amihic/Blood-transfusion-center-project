@@ -41,7 +41,6 @@ public class RegistrationService {
         id=id+1;
         userDTO.setId(id);
         
-        //checkPassword(userDTO.getPassword1(),userDTO.getPassword2());
         if(!userDTO.getPassword1().equals(userDTO.getPassword2())){
         	return null;
         }
