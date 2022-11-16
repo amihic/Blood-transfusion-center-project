@@ -10,13 +10,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { MedCentersComponent } from './med-centers/med-centers.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HomeComponent,
+    MedCentersComponent
   ],
   imports: [
     BrowserModule,
