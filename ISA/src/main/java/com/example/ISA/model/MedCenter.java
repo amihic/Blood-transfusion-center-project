@@ -33,7 +33,7 @@ public class MedCenter {
     @Column
     private String description;
    
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Rating> rating;
    
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
