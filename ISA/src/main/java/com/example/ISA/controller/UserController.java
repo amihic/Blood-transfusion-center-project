@@ -29,19 +29,6 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-   /* @RequestMapping(value="/search/{email}",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<User> getByUsername(@PathVariable String username)
-    {
-        User user=this.userService.getUser(email);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }*/
-
- /* @RequestMapping(value="/{email}",method = RequestMethod.GET, produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<User> getById(@PathVariable Long id){
-        User user=this.userService.getUser(email);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    */
-	
 	@GetMapping(value = "/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
 
