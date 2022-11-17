@@ -26,7 +26,7 @@ public class User {
    
     @Column
     private String email;
-   
+
     @Column
     private String password;
     
@@ -66,6 +66,10 @@ public class User {
 	public User() {
 		super();
 	}
+	
+	 public User(User user) {
+	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo()  );
+	    }
 
 	public User(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
 			String phoneNumber, String jmbg, GenderType gender, String job, String info) {
