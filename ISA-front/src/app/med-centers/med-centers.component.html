@@ -7,6 +7,7 @@
                 <th>Street</th>
                 <th>City</th>
                 <th>Country</th>
+                <th>Rating</th>
                 <th>Description</th>
                 
             </tr>
@@ -18,6 +19,7 @@
                 <td>{{medCenter.street}}</td>
                 <td>{{medCenter.city}}</td>
                 <td>{{medCenter.country}}</td>
+                <td>{{medCenter.avgRate}}</td>
                 <td>{{medCenter.description}}</td>
             </tr>
         </tbody>
@@ -26,8 +28,9 @@
     <div class="dropdown" style="float:center;">
         <button class="dropbtn">Sort</button>
         <div class="dropdown-content" style="left:0;">
-          <a (click)="getAllMedCentersByName()">Sort by name</a>
-          <a (click)="getAllMedCentersByCity()">Sort by city</a>
+          <a (click)="getAllMedCentersByName()">by name</a>
+          <a (click)="getAllMedCentersByCity()">by city</a>
+          <a (click)="getAllMedCentersByRating()">by rating</a>
         </div>
       </div>
 

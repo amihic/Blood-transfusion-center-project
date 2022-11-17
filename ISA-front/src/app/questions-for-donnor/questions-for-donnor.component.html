@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+  text-align: center;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+  
+}
+
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.donatebtn {
+  background-color: #3a1b1b;
+  color: white;
+  padding: 16px 20px;
+  margin: 20px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+.saglasnost{
+    text-align: left;
+    background: #c91f1f;
+}
+.hvala{
+    text-align: center;    
+}
+.napomena{
+    text-align: left;
+    background: #c91f1f;
+}
+
+.new-respondedQuestionsForDonnor1{
+    text-align: left;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+    <form action="/action_page.php">
+      <div class="container">
+        <div class="slika">
+
+        </div>
+        <h1><b>УПИТНИК ЗА ДАВАОЦА КРВИ ИЛИ КОМПОНЕНАТА КРВИ</b></h1>
+        
+        <h2>ПОПУЊАВА ДАВАЛАЦ</h2>
+Молимо Вас да прочитате упитник и искрено одговорите на свако питање. Упитник је важан због очувања Вашег здравља и сигурности трансфузијског лечења пацијената.
+Ваши одговори, као и сви остали подаци о Вама су потпуно поверљиви (лекарска тајна) и користиће се само за потребе овлашћене трансфузијске установе.
+
+        
+        <div class = "new-respondedQuestionsForDonnor">
+            <form>
+                <hr>
+            <label><b>Број даваоца:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.brojDavaoca" name="brojDavaoca" required >
+
+            <label><b>Датум:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.datum" name="datum" required >
+
+            <label><b>Презиме(име родитеља)име:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.prezimeRoditeljIme" name="prezimeRoditeljIme" required >
+
+            <label><b>ЈМБГ:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.jmbg" name="jmbg" required >
+
+            <label><b>Датум и година рођења:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.datumRodjenja" name="datumRodjenja" required >
+
+            <label><b>Пол:</b></label>
+            <input type="radio" value="male" [(ngModel)]="newRespondedQuestionsForDonnor.pol" name="pol" > МУШКО
+            <input type="radio" value="female" [(ngModel)]="newRespondedQuestionsForDonnor.pol" name="pol" [ngModelOptions]="{standalone: true}"> ЖЕНСКО
+
+            <label><b>Адреса становања:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.adresa" name="adresa" required >
+
+            <label><b>Општина:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.opstina" name="opstina" required >
+
+            <label><b>Место:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.mesto" name="mesto" required >
+
+            <label><b>Тел.кућа:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.kucniTel" name="kucniTel" required >
+
+            <label><b>Тел.посао:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.poslovniTel" name="poslovniTel" required >
+
+            <label><b>моб.тел:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.mobilniTel" name="mobilniTel" required >
+
+            <label><b>Предузеће, факултет, школа:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.preduzeceFakultetSkola" name="preduzeceFakultetSkola" required >
+
+            <label><b>Занимање:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.zanimanje" name="zanimanje" required >
+
+            <label><b>Број претходних давања:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.brojDavanja" name="brojDavanja" required >
+
+            <label><b>Потпис даваоца:</b></label>
+            <input type="text" [(ngModel)]="newRespondedQuestionsForDonnor.potpis" name="potpis" required >
+       
+            <hr>
+        </form>
+    </div>
+
+   
+  </div>  
+
+  <div class = "new-respondedQuestionsForDonnor1">
+    <form>
+        <hr>
+            <label><b>1.	Да ли сте до сада добровољно давали крв или компоненте крви?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q1" name="q1" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q1" name="q1" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>2.	Да ли сте икада били одбијени као давалац крви или компоненте крви?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q2" name="q2" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q2" name="q2" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>3.	Да ли се тренутно осећате здравим, способним и одморним да дате крв или компоненте крви?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q3" name="q3" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q3" name="q3" [ngModelOptions]="{standalone: true}" > NE
+            <h1></h1>
+
+            <label><b>4.	Да ли сте нешто јели пре доласка на давање крви или компоненте крви?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q4" name="q4"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q4" name="q4" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>5.	Да ли се бавите опасним занимањем или хобијем?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q5"  name="q5"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q5" name="q5" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>6.	Да ли редовно (свакодневно) узимате било какве лекове?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q6"  name="q6"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q6" name="q6" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>7.	Да ли сте последња 2-3 дана узимали било какве лекове (нпр. Бруфен, Кафетин, Аналгин...)?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q7"  name="q7"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q7" name="q7" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>8.	Да ли стално узимате Аспирин (Cardiopirin)? Да ли сте га узимали у последњих 5 дана?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q8" name="q8"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q8" name="q8" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>9.	Да ли сте до сада испитивани или лечени у болници или сте тренутно на испитивању или боловању?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q9"  name="q9"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q9" name="q9" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>10.	Да ли сте вадили зуб у протеклих 7 дана?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q10"  name="q10"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q10" name="q10" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>11.	Да ли сте у последњих 7 до 10 дана имали температуру преко 38оC, кијавицу, прехладу или узимали антибиотике?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q11"  name="q11"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q11" name="q11" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>12.	Да ли сте примили било коју вакцину или серум у протеклих 12 месеци?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q12"  name="q12"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q12" name="q12" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>13.	Да ли сте у последњих 6 месеци нагло изгубили на тежини?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q13"  name="q13"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q13" name="q13" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>14.	Да ли сте имали убоде крпеља у протеклих 12 месеци и да ли сте се због тога јављали лекару?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q14"  name="q14"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q14" name="q14" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>15.	Да ли сте икада лечени од епилепсије (падавице), шећерне болести, астме, туберкулозе, инфаркта, можданог удара,
+                малигних обољења, менталних болести или маларије?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q15"  name="q15"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q15" name="q15" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>16.	Да ли болујете од неке друге хроничне болести: срца, плућа, бубрега, јетре, желуца и црева, костију и зглобова, нервног система, крви и крвних судова?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q16" name="q16"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q16" name="q16" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>17.	Да ли сте икада имали проблема са штитастом жлездом, хипофизом и/или примали хормоне?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q17" name="q17"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q17" name="q17" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>18.	Да ли имате неке промене на кожи или болујете од алергије?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q18"  name="q18"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q18" name="q18" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>19.	Да ли дуго крварите после повреде или спонтано добијате модрице?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q19"  name="q19"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q19" name="q19" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>20.	Да ли сте у протеклих 6 месеци:</b></label>
+            <h1></h1>
+            <label>а) имали неку операцију или примили крв?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q20_a"  name="q20_a"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q20_a" name="q20_a" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>б) путовали или живели у иностранству?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q20_b" name="q20_b" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q20_b" name="q20_b" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>в) имали акупунктуру, пирсинг или тетоважу?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q20_c" name="q20_c"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q20_c" name="q20_c" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>21.	Да ли сте пили алкохол у последњих 6 сати?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q21"  name="q21"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q21" name="q21" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>22.	Облици ризичних стања и понашања:</b></label>
+            <h1></h1>
+            <label>а) Да ли сте боловали или болујете од хепатитиса (жутице) A, B или C?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_a"  name="q22_a"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_a" name="q22_a" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>б) Да ли сте били у контакту или живите са особом оболелом од хепатитиса (жутице)?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_b"  name="q22_b"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_b" name="q22_b" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>в) Да ли мислите да је постојала могућност да се заразите HIV-ом?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_c"  name="q22_c"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_c" name="q22_c" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>г) Да ли сте икада користили било коју врсту дроге?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_d"  name="q22_d"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_d" name="q22_d" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>д) Да ли сте икада користили препарате који се званично не издају на рецепт и/или препарате за боди билдинг (стероиде)?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_e" name="q22_e" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_e" name="q22_e" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>ђ) Да ли сте икада за пружање сексуалних услуга узимали новац или дрогу?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_f"  name="q22_f"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_f" name="q22_f" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>е) Да ли знате на које све начине сте могли изложити себе ризику од заразних, крвљу преносивих болести?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q22_g" name="q22_g" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q22_g" name="q22_g" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>23.	Да ли сте имали сексуалне односе током протеклих 6 месеци без заштите:</b></label>
+            <h1></h1>
+            <label>а) са особом која је HIV позитивна?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q23_a" name="q23_a" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q23_a" name="q23_a" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>б) са особом која има или је имала хепатитис (жутицу) B или C?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q23_b" name="q23_b" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q23_b" name="q23_b" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>в) са особом која је икада за пружање сексуалних услуга узимала новац или дрогу?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q23_c"  name="q23_c"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q23_c" name="q23_c" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>г) са особом која је икада користила било коју врсту дроге на било који начин?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q23_d"  name="q23_d"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q23_d" name="q23_d" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>д) са особом чије Вас је дотадашње сексуално понашање могло довести у ризик добијања сексуално преносиве болести?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q23_e"  name="q23_e"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q23_e" name="q23_e" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label>ђ) да ли сте Ви имали аналне сексуалне односе током протеклих 6 месеци?</label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q23_f"  name="q23_f"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q23_f" name="q23_f" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <h1>За жене</h1>
+
+            <label><b>24.	Да ли сте у другом стању?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q24" name="q24" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q24" name="q24" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>25.	Да ли тренутно имате менструацију?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q25" name="q25" > DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q25" name="q25" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <label><b>26.	Да ли сте у последњих 6 месеци имали порођај или прекид трудноће?</b></label>
+            <input type="radio" value="yes" [(ngModel)]="newRespondedQuestionsForDonnor.q26"  name="q26"> DA
+            <input type="radio" value="no" [(ngModel)]="newRespondedQuestionsForDonnor.q26" name="q26" [ngModelOptions]="{standalone: true}"> NE
+            <h1></h1>
+
+            <hr>
+        </form>
+ 
+  </div> 
+  <div class = "saglasnost">
+    <form>
+        <hr>
+  <h2>САГЛАСНОСТ ДАВАОЦА КРВИ ИЛИ КОМПОНЕНАТА КРВИ</h2>
+<p>  Попунио/ла сам Упитник за даваоца крви или компонената крви и сагласан/на сам да дам крв или компоненте крви и изјављујем:</p>
+<p>
+  1)	прочитао/ла и разумео/ла сам едукативни материјал који сам добио/ла и тврдим под пуном одговорношћу да сам на сва питања одговорио/ла тачно и унео/ла тачне податке;
+</p>
+<p>
+  2)	oбавештен/а сам да ће моја крв бити тестирана на болести које се преносе путем крви;
+</p>
+<p>
+  3)	oбавештен/а сам о могућности да одустанем од давања крви или компоненaтa крви пре отпочињања поступка, као и о могућности одбијања давања, односно могућности повлачења сагласности у било ком тренутку у току давања;
+</p>  <p>
+  4)	обавештен/а сам о сврси давања крви или компонената крви;
+</p>  <p>
+  5)	упознат/а сам са уобичајеним ризицима и могућим реакцијама током узимања крви, као и о обиму тестирања крви;
+</p>  <p>
+  6)	обавештен/а сам о заштити података о личности;
+</p>  <p>
+  7)	имао/ла сам могућност да постављам питања;
+</p>  <p>
+  8)	добио/ла сам задовољавајуће одговоре на сва постављена питања;
+</p>  <p>
+  9)	дао/ла сам истините информације према свом најбољем знању и
+</p>  <p>
+  10)	потврђујем веродостојност датих података.
+</p>
+
+<hr>
+</form>
+
+</div>
+<div class="hvala">
+    <h1>ХВАЛА ШТО ДАЈЕТЕ КРВ</h1>
+
+</div>
+<div class="napomena">
+
+    <p>Напомена:</p>
+    <p>Одустао/ла Одбијање давања</p>
+    <p>Сагласност повучена	Потпис даваоца крви или компоненте крви</p>
+
+</div>
+<button type="submit" class="donatebtn" (click)="donate()">Confirm</button>
+
+    </form>
+    </body>
+</html>
+
+
+
+ 
+
+
+
+
+
+
+
+

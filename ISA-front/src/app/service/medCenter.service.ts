@@ -13,6 +13,7 @@ export class MedCenterService
   url1 = "http://localhost:8080/api/medCenter/all";
   url2 = "http://localhost:8080/api/medCenter/allByName";
   url3 = "http://localhost:8080/api/medCenter/allByCity";
+  url4 = "http://localhost:8080/api/medCenter/allByRating";
 
   constructor(private http:HttpClient) {}
 
@@ -30,6 +31,11 @@ export class MedCenterService
   getMedCentersByCity():Observable<MedCenter[]>
   {
     return this.http.get<MedCenter[]>(this.url3);
+  }
+
+  getMedCentersByRating():Observable<MedCenter[]>
+  {
+    return this.http.get<MedCenter[]>(this.url4);
   }
   /*
   saveMedCenter(newUser:MedCenter):Observable<MedCenter>

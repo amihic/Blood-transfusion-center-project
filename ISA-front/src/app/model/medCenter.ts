@@ -5,6 +5,7 @@ interface MedCenterInterface{
     street:string;
     city:string;
     country:string;
+    avgRate:number;
     description:string;
     
 
@@ -17,6 +18,7 @@ export class MedCenter implements MedCenterInterface{
     street:string;
     city:string;
     country:string;
+    avgRate:number;
     description:string;
     
 
@@ -27,6 +29,7 @@ export class MedCenter implements MedCenterInterface{
         this.street=obj.street;
         this.city=obj.city;
         this.country=obj.country;
+        this.avgRate=obj.avgRate;
         this.description=obj.description;
         
 

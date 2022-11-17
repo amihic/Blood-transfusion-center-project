@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MedCentersComponent } from './med-centers/med-centers.component';
+import { QuestionsForDonnorComponent } from './questions-for-donnor/questions-for-donnor.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MedCentersComponent } from './med-centers/med-centers.component';
     NavComponent,
     RegistrationComponent,
     HomeComponent,
-    MedCentersComponent
+    MedCentersComponent,
+    QuestionsForDonnorComponent
   ],
   imports: [
     BrowserModule,
