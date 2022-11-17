@@ -87,7 +87,7 @@ public class MedCenterController {
 			this.medCenterRepository.save(mc);
 			}catch(NullPointerException e) {}
 		}
-		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByAvgRate();
+		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByAvgRateDesc();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
 	}
 	
@@ -99,6 +99,11 @@ public class MedCenterController {
 		return new ResponseEntity<>(newMedCenter, HttpStatus.CREATED);
 	}
 	
+	@RequestMapping(method = RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<MedCenter> update(@RequestBody MedCenter medCenter){
+		MedCenter updatedMedCenter = this.medCenterService.update(medCenter);
+		return new ResponseEntity<>(updatedMedCenter, HttpStatus.CREATED);
+	}
 	
 	
 	

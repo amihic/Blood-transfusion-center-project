@@ -17,5 +17,11 @@ public interface MedCenterRepository extends JpaRepository<MedCenter,String> {
 	List<MedCenter> findByOrderByRating();
 
 	List<MedCenter> findByOrderByAvgRate();
+
+	List<MedCenter> findByOrderByAvgRateDesc();
+
+	MedCenter getByName(String name);
+
+	MedCenter getByAvgRate(Double avgRate);
 	
 }

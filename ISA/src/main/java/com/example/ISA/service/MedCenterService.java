@@ -31,6 +31,12 @@ public class MedCenterService {
 	        return this.medCenterRepository.save(medCenter);	
 	}
 
+	public MedCenter update(MedCenter medCenter) {
+			MedCenter updatedMedCenter = this.medCenterRepository.getByName(medCenter.getName());
+			//updatedMedCenter.setName(medCenter.getName());				
+			return this.medCenterRepository.save(updatedMedCenter);
+	}
+
 
 
 	
