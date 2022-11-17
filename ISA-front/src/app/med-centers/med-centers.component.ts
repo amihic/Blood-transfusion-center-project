@@ -22,6 +22,7 @@ export class MedCentersComponent implements OnInit {
           street:"",
           city:"",
           country:"",
+          avgRate:0,
           description:""
 
         }
@@ -47,6 +48,12 @@ export class MedCentersComponent implements OnInit {
   getAllMedCentersByCity()
   {
     this.medCenterService.getMedCentersByCity()
+    .subscribe(res => this.medCenters=res);
+  }
+
+  getAllMedCentersByRating()
+  {
+    this.medCenterService.getMedCentersByRating()
     .subscribe(res => this.medCenters=res);
   }
   

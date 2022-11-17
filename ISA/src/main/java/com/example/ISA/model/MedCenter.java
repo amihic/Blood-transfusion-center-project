@@ -32,9 +32,12 @@ public class MedCenter {
    
     @Column
     private String description;
+    
+    @Column
+    private Double avgRate;
    
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Rating> rating;
+    private List<Rating> rating;
    
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Appointment> availableAppointments;
@@ -48,7 +51,7 @@ public class MedCenter {
 		super();
 	}
 	
-	public MedCenter(int id, String name, String street, String city, String country, String description, Set<Rating> rating,
+	public MedCenter(int id, String name, String street, String city, String country, String description,Double avgRate, List<Rating> rating,
 			Set<Appointment> availableAppointments, Set<AdminEmployee> adminEmployees) {
 		super();
 		this.id = id;
@@ -57,6 +60,7 @@ public class MedCenter {
 		this.city = city;
 		this.country = country;
 		this.description = description;
+		this.avgRate = avgRate;
 		this.rating = rating;
 		this.availableAppointments = availableAppointments;
 		this.adminEmployees = adminEmployees;
@@ -112,11 +116,19 @@ public class MedCenter {
 		this.description = description;
 	}
 	
-	public Set<Rating> getRating() {
+	public Double getAvgRate() {
+		return avgRate;
+	}
+
+	public void setAvgRate(Double avgRate) {
+		this.avgRate = avgRate;
+	}
+
+	public List<Rating> getRating() {
 		return rating;
 	}
 	
-	public void setRating(Set<Rating> rating) {
+	public void setRating(List<Rating> rating) {
 		this.rating = rating;
 	}
 	
