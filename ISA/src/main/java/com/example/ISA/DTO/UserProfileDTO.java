@@ -4,6 +4,7 @@ import javax.persistence.Column;
 
 import com.example.ISA.model.CategoryType;
 import com.example.ISA.model.GenderType;
+import com.example.ISA.model.User;
 
 public class UserProfileDTO {
 
