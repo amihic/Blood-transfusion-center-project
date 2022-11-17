@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,6 +64,18 @@ public class MedCenterController {
 		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByCity();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/{name}",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<MedCenter> getByName(@PathVariable String name){
+        MedCenter user = this.medCenterRepository.getByName(name);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+	
+	@RequestMapping(value="/{city}",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<MedCenter> getByCity(@PathVariable String city){
+        MedCenter user = this.medCenterRepository.getByName(city);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
 	
 	//cela logika u ovoj metodi je verovatno nepotrebna jer je implementirana u 
 	//getAll metodi koja se automatski pokrene pri otvaranju stranice http://localhost:8080/api/medCenter/all"
