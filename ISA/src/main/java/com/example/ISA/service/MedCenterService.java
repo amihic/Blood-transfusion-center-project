@@ -1,5 +1,6 @@
 package com.example.ISA.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,17 @@ public class MedCenterService {
 	        
 	        return this.medCenterRepository.save(medCenter);	
 	}
+
+	public MedCenter update(MedCenter medCenter) {
+			MedCenter updatedMedCenter = this.medCenterRepository.getByName(medCenter.getName());
+			//updatedMedCenter.setName(medCenter.getName());				
+			return this.medCenterRepository.save(updatedMedCenter);
+	}
+
+
+
+	
+	
 	
 	
 	
