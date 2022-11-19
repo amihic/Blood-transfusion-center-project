@@ -1,12 +1,14 @@
 package com.example.ISA.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.ISA.model.User;
 import com.example.ISA.repository.UserRepository;
 
 import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
 
+@Service
 public class UserService {
 
 	 @Autowired
