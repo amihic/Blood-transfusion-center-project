@@ -78,12 +78,11 @@ public class IsaApplication implements CommandLineRunner{
 		        rate5.add(newRating10);
 		
 		
-        MedCenter newMedCenter1 = new MedCenter(1, "Kraljevo", "Srbija", "Medicinski centar za davanje krvi", "MedCentarKV", "Jug Bogdanova 33", 0.0, rate1, null, null);
-        MedCenter newMedCenter2 = new MedCenter(2, "Beograd", "Srbija", "Medicinski centar za davanje krvi", "MedCentarPalilula", "Palilula 27", 0.0, rate2, null, null);
-        MedCenter newMedCenter3 = new MedCenter(3, "Mladenovac", "Srbija", "Medicinski centar za davanje krvi", "MladenovacMC", "Hajduk Veljkova 111", 0.0, rate3, null, null);
-        MedCenter newMedCenter4 = new MedCenter(4, "Subotica", "Srbija", "Medicinski centar za davanje krvi", "SuboticaMC", "Suboticka 78", 0.0, rate4, null, null);
-        MedCenter newMedCenter5 = new MedCenter(5, "Krusevac", "Srbija", "Medicinski centar za davanje krvi", "MCKrusevac", "Cara Lazara 56", 0.0, rate5, null, null);
-
+        MedCenter newMedCenter1 = new MedCenter(1, "MedCentarKV", "Jug Bogdanova 33", "Kraljevo", "Srbija", "Medicinski centar za davanje krvi", 0.0, rate1, null, null);
+        MedCenter newMedCenter2 = new MedCenter(2, "MedCentarPalilula", "Palilula 27", "Beograd", "Srbija", "Medicinski centar za davanje krvi", 0.0, rate2, null, null);
+        MedCenter newMedCenter3 = new MedCenter(3, "MladenovacMC", "Hajduk Veljkova 111", "Mladenovac", "Srbija", "Medicinski centar za davanje krvi", 0.0, rate3, null, null);
+        MedCenter newMedCenter4 = new MedCenter(4, "SuboticaMC", "Suboticka 78", "Subotica", "Srbija", "Medicinski centar za davanje krvi", 0.0, rate4, null, null);
+        MedCenter newMedCenter5 = new MedCenter(5, "MCKrusevac", "Cara Lazara 56", "Krusevac", "Srbija", "Medicinski centar za davanje krvi", 0.0, rate5, null, null);
 
 
 
