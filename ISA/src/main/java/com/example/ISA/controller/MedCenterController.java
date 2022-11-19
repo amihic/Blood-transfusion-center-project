@@ -67,14 +67,14 @@ public class MedCenterController {
 	
 	@RequestMapping(value="/{name}",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<MedCenter> getByName(@PathVariable String name){
-        MedCenter user = this.medCenterRepository.getByName(name);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+		MedCenter medCenter = this.medCenterRepository.getByName(name);
+        return new ResponseEntity<>(medCenter, HttpStatus.OK);
     }
 	
 	@RequestMapping(value="/{city}",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<MedCenter> getByCity(@PathVariable String city){
-        MedCenter user = this.medCenterRepository.getByName(city);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+		MedCenter medCenter = this.medCenterRepository.getByCity(city);
+        return new ResponseEntity<>(medCenter, HttpStatus.OK);
     }
 	
 	//cela logika u ovoj metodi je verovatno nepotrebna jer je implementirana u 
