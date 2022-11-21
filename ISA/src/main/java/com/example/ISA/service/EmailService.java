@@ -11,6 +11,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import com.example.ISA.DTO.UserRegistrationDTO;
 import com.example.ISA.model.User;
+import com.example.ISA.verification.VerificationToken;
+
 
 
 
@@ -63,14 +65,17 @@ public class EmailService {
 		System.out.println("Email poslat!");
 	}
 
-	public void sendTestMail(User newUser) {
+	public void sendTestMail(User newUser, VerificationToken verificationToken) {
 		System.out.println("Slanje emaila...");
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(newUser.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
-		mail.setSubject("Welcome");
-		mail.setText("Welcome " +newUser.getEmail()+"!You have been registered! ");
-		javaMailSender.send(mail);
+		
+		mail.setSubject("Account verification");
+        mail.setText("Hello " + verificationToken.getUser().getFirstName()
+                + ",\n\nPlease click the following link to verify your account: \n"
+                + "http://localhost:4200/registration/verify/" + verificationToken.getToken());
+        javaMailSender.send(mail);
 		
 		System.out.println("Email poslat!");
 		
