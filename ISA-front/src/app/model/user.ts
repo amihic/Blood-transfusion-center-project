@@ -18,6 +18,7 @@ interface UserInterface{
     gender:string;
     job:string;
     info:string;
+    isActivated:boolean;
 
 
     
@@ -37,6 +38,7 @@ export class User implements UserInterface{
     gender:string;
     job:string;
     info:string;
+    isActivated:boolean;
 
 
     constructor(obj:UserInterface){
@@ -54,6 +56,7 @@ export class User implements UserInterface{
         this.gender=obj.gender;
         this.job=obj.job;
         this.info=obj.info;
+        this.isActivated=obj.isActivated;
 
 
     } 

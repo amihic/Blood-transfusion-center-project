@@ -62,17 +62,20 @@ public class User {
     @Column
     private String info;
     
+    @Column
+    private boolean isActivated = false;
+    
    
 	public User() {
 		super();
 	}
 	
 	 public User(User user) {
-	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo()  );
+	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo(), user.isActivated );
 	    }
 
 	public User(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
-			String phoneNumber, String jmbg, GenderType gender, String job, String info) {
+			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean isActivated) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -87,6 +90,7 @@ public class User {
 		this.gender = gender;
 		this.job = job;
 		this.info = info;
+		this.isActivated = isActivated;
 	}
 
 	public int getId() {
@@ -193,6 +197,14 @@ public class User {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	public boolean isActivated() {
+		return isActivated;
+	}
+
+	public void setActivated(boolean isActivated) {
+		this.isActivated = isActivated;
 	}
    
    

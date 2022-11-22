@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MedCentersComponent } from './med-centers/med-centers.component';
 import { QuestionsForDonnorComponent } from './questions-for-donnor/questions-for-donnor.component';
+import { VerificationComponent } from './verification/verification.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { QuestionsForDonnorComponent } from './questions-for-donnor/questions-fo
     RegistrationComponent,
     HomeComponent,
     MedCentersComponent,
-    QuestionsForDonnorComponent
+    QuestionsForDonnorComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,

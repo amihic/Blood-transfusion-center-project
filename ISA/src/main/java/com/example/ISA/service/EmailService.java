@@ -74,7 +74,7 @@ public class EmailService {
 		mail.setSubject("Account verification");
         mail.setText("Hello " + verificationToken.getUser().getFirstName()
                 + ",\n\nPlease click the following link to verify your account: \n"
-                + "http://localhost:4200/registration/verify/" + verificationToken.getToken());
+                + "http://localhost:4200/verification" );//+ verificationToken.getToken()
         javaMailSender.send(mail);
 		
 		System.out.println("Email poslat!");

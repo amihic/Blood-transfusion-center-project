@@ -4,6 +4,9 @@ package com.example.ISA.controller;
 import java.util.List;
 import java.util.UUID;
 
+
+import javax.swing.text.html.HTML;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,11 +64,20 @@ public class RegistrationController {
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 	}
 	
+	@RequestMapping(value="api/verification" ,method = RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> verify(@RequestBody UserRegistrationDTO userDTO){
+		User verifiedUser = this.registrationService.verify(userDTO);
+		return new ResponseEntity<>(verifiedUser, HttpStatus.OK);
+	}
+	
 	//vrati sve usere
 	@RequestMapping(value="api/users",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<List<User>> findAll(){
+		try {
 		List<User> users = this.registrationRepository.findAll();
 		return new ResponseEntity<>(users, HttpStatus.OK);
+		}catch(Exception e) {}
+		return null;
 	}
 	
 	

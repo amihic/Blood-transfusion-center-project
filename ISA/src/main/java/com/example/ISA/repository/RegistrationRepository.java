@@ -13,4 +13,6 @@ public interface RegistrationRepository extends JpaRepository<User,String> {
 
 	UserRegistrationDTO save(UserRegistrationDTO userDTO);
 
+	User getByEmail(String email);
+
 }

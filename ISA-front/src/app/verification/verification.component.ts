@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/user';
+import { RegistrationComponent } from '../registration/registration.component';
 import { RegistrationService } from '../service/registration.service';
 
-
-
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-verification',
+  templateUrl: './verification.component.html',
+  styleUrls: ['./verification.component.css']
 })
-export class RegistrationComponent implements OnInit {
-  genders = ['MALE', 'FEMALE'];
-  newUser:User;
-  users:User[];
+export class VerificationComponent implements OnInit {
 
+  verifiedUser:User;
 
   constructor(private registrationService:RegistrationService) {
-    this.newUser = new User
+    this.verifiedUser = new User
       (
         {
           id: 1,
@@ -30,39 +28,23 @@ export class RegistrationComponent implements OnInit {
           country:"",
           phoneNumber:"",
           jmbg: "",
-          gender:"",
+          gender:"male",
           job:"",
           info:"",
           isActivated:false
 
         }
       );
-     this.users=[]; 
-
-   }
+  }
 
 
 
   ngOnInit(): void {
   }
 
-  reloadData()
-  {
-    this.registrationService.getUsers()
-    .subscribe(res => this.users=res);
-  }
-
-  registration()
-  {
-    console.log(this.newUser)
-    this.registrationService.registration(this.newUser)
-    .subscribe(_=>this.reloadData());
-  }
-  
   verify(){
-    
+    this.registrationService.verify(this.verifiedUser)
+    .subscribe((res: User) => this.verifiedUser=res)
   }
-  
-
 
 }

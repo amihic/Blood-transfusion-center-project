@@ -62,6 +62,16 @@ public class RegistrationService {
         
         return this.registrationRepository.save(user);
 	}
+
+
+	public User verify(UserRegistrationDTO userDTO) {
+		try {
+		User verifiedUser = registrationRepository.getByEmail(userDTO.getEmail());   
+		verifiedUser.setActivated(true);
+        return  this.registrationRepository.save(verifiedUser);
+		}catch(Exception e){}
+		return null;
+	}
 	
 	
 }

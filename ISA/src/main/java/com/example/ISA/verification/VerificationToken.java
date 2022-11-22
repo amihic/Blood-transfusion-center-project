@@ -21,14 +21,14 @@ public class VerificationToken {
     private static final int EXPIRATION = 60 * 24;
 
     @Id
-    @Column(name = "client_id")
+    @Column(name = "patient_id")
     private Integer id;
 
     private String token;
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "patient_id")
     private User user;
 
     private Date expiryDate;
