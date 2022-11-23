@@ -1,0 +1,19 @@
+.donatebtn{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.donatebtn:hover{
+    background-color: rgb(255, 1, 1);
+}
+
+.saglasnost{
+    border-radius: 5px;
+}
+
+
+.napomena{
+    border-radius: 5px;
+}
