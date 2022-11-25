@@ -71,9 +71,9 @@ public class EmailService {
 		mail.setTo(newUser.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		
-		mail.setSubject("Account verification");
-        mail.setText("Hello " + verificationToken.getUser().getFirstName()
-                + ",\n\nPlease click the following link to verify your account: \n"
+		mail.setSubject("Verifikacija naloga");
+        mail.setText("Zdravo " + verificationToken.getUser().getFirstName()
+                + ",\n\nMolimo Vas da stisnete sledeći link kako biste verifikovali svoj nalog: \n"
                 + "http://localhost:4200/verification" );//+ verificationToken.getToken()
         javaMailSender.send(mail);
 		

@@ -1,7 +1,7 @@
 .table{
     text-align: center;
     margin:auto;
-    border: 3px solid #a00606;
+    border: 3px dashed #a00606;
     border-radius: 10px;
   }
   

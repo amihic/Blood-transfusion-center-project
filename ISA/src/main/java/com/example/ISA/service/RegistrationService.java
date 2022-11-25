@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.example.ISA.DTO.UserRegistrationDTO;
@@ -17,6 +20,12 @@ public class RegistrationService {
 	
 	@Autowired
 	private RegistrationRepository registrationRepository;
+	
+	@Autowired
+	private Environment env;
+	
+	@Autowired
+	private JavaMailSender javaMailSender;
 	
 	public void checkPassword(String pw1, String pw2) {
 		if(!pw1.equals(pw2)) {
@@ -68,9 +77,26 @@ public class RegistrationService {
 		try {
 		User verifiedUser = registrationRepository.getByEmail(userDTO.getEmail());   
 		verifiedUser.setActivated(true);
-        return  this.registrationRepository.save(verifiedUser);
+		registrationRepository.save(verifiedUser);
+		sendAcceptingMail(verifiedUser);
+		return verifiedUser;
 		}catch(Exception e){}
 		return null;
+	}
+	
+	public void sendAcceptingMail(User verifiedUser) {
+		
+		System.out.println("Slanje emaila...");
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(verifiedUser.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		
+		mail.setSubject("Uspešna verifikacija naloga");
+        mail.setText("Zdravo " + verifiedUser.getFirstName()
+                + ",\n\nUspešno ste registrovani u naš sistem. Sada se možete ulogovati.");
+        javaMailSender.send(mail);
+		
+		System.out.println("Email poslat!");
 	}
 	
 	
