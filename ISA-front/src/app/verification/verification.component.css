@@ -1,0 +1,25 @@
+.rctngl{
+    border: 7px solid #a00606;
+    border-radius: 20px;
+    background-color: #ffe7e7;
+    width:20%;
+    padding: 100px;
+    margin:auto;
+    text-align: center;
+    height: 10vw;
+    
+    
+}
+
+.verificationbtn{
+    background-color: #e07777;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+    width: 30%;
+    text-decoration: none;
+}
+.verificationbtn:hover{
+    background-color: #a00606;
+}

@@ -35,13 +35,15 @@ public class UserRegistrationDTO {
    
     private String info;
     
+    private boolean isActivated;
+    
    
 	public UserRegistrationDTO() {
 		super();
 	}
 
 	public UserRegistrationDTO(int id, String email, String password1, String password2, String firstName, String lastName, String address, String city, String country,
-			String phoneNumber, String jmbg, GenderType gender, String job, String info) {
+			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean isActivated) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -57,6 +59,7 @@ public class UserRegistrationDTO {
 		this.gender = gender;
 		this.job = job;
 		this.info = info;
+		this.isActivated = isActivated;
 	}
 
 	public int getId() {
@@ -173,4 +176,13 @@ public class UserRegistrationDTO {
 	public void setInfo(String info) {
 		this.info = info;
 	}
+
+	public boolean isActivated() {
+		return isActivated;
+	}
+
+	public void setActivated(boolean isActivated) {
+		this.isActivated = isActivated;
+	}
+	
 }

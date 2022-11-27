@@ -10,6 +10,7 @@ export class RegistrationService
 {
   url="http://localhost:8080/api/registration";
   url1 = "http://localhost:8080/api/users";
+  url2 = "http://localhost:8080/api/verification";
 
   constructor(private http:HttpClient) {}
    
@@ -20,8 +21,12 @@ export class RegistrationService
   
   registration(newUser:User):Observable<User>
   {
-    
     return this.http.post<User>(this.url,newUser);
+  }
+
+  verify(verifiedUser:User):Observable<User>
+  {
+    return this.http.put<User>(this.url2,verifiedUser);
   }
 
 
