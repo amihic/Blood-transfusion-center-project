@@ -8,7 +8,8 @@ import { User } from '../model/user';
 })
 export class RegistrationService 
 {
-  url="http://localhost:8080/api/registration";
+  //url="http://localhost:8080/api/registration";
+  url="http://localhost:8080/auth/signup";
   url1 = "http://localhost:8080/api/users";
   url2 = "http://localhost:8080/api/verification";
 
