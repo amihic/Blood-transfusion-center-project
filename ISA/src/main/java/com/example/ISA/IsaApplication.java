@@ -1,21 +1,18 @@
 package com.example.ISA;
 
 import java.util.ArrayList;
-
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
-
 import com.example.ISA.model.Authority;
 import com.example.ISA.model.MedCenter;
 import com.example.ISA.model.Rating;
-import com.example.ISA.model.User;
 import com.example.ISA.repository.AuthorityRepository;
 import com.example.ISA.repository.MedCenterRepository;
 import com.example.ISA.repository.RatingRepository;
+
 
 @SpringBootApplication//(exclude =  {DataSourceAutoConfiguration.class })
 @EnableAsync
@@ -37,13 +34,13 @@ public class IsaApplication implements CommandLineRunner{
 	@Override
 	public void run(String[] args) throws Exception
     {
-		Authority newAuthority1 = new Authority(1, "ROLE_ADMIN_EMPLOYEE");
+		/*Authority newAuthority1 = new Authority(1, "ROLE_ADMIN_EMPLOYEE");
 		Authority newAuthority2 = new Authority(2, "ROLE_PATIENT");
 		
 		authorityRepository.save(newAuthority1);
 		authorityRepository.save(newAuthority2);
 		
-		User user1 = new User();
+*/
 		
 				
 		Rating newRating1 = new Rating(1,10,null);

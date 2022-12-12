@@ -34,7 +34,7 @@ public class RegistrationService {
 	
 	public void sendAcceptingMail(User verifiedUser) {
 		
-		System.out.println("Slanje emaila...");
+		System.out.println("Slanje emaila za obavestenje o uspesnoj verifikaciji...");
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(verifiedUser.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));

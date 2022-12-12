@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.ISA.model.Role;
-import com.example.ISA.repository.RoleRepository;
+//import com.example.ISA.repository.RoleRepository;
 import com.example.ISA.security.service.RoleService;
 
 
-
+/*
 @Service
 public class RoleServiceImpl implements RoleService {
 
@@ -31,3 +31,4 @@ public class RoleServiceImpl implements RoleService {
 
 
 }
+*/

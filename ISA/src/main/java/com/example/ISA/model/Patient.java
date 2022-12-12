@@ -31,9 +31,10 @@ public class Patient extends User {
 		super();
 	}
 	
-	public Patient(String email, String password, String firstName, String lastName, String address, String city, String country,
+	public Patient(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
 			 String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean enabled, String role, List<Authority> authorities) {
 		super();
+		setId(id);
 		setEmail(email);
 		setPassword(password);
 		setFirstName(firstName);

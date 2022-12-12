@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -19,18 +21,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-
-
-
-
-
 @Entity( name = "MedUser" )
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements UserDetails{
 	
 	private static final long serialVersionUID = 1L;
 	
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
    
     @Column
@@ -74,9 +72,9 @@ public class User implements UserDetails{
     private String role;
     
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_authority",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    @JoinTable(name = "med_user_authorities",
+            joinColumns = @JoinColumn(name = "med_user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
     private List<Authority> authorities;
     
     /*@ManyToMany(fetch = FetchType.EAGER)

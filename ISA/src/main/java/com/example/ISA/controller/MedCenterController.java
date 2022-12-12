@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,19 +56,21 @@ public class MedCenterController {
 	}
 	
 	@RequestMapping(value = "/allByName", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<MedCenter>> orderByName(){
 		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByName();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/allByCity", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<MedCenter>> orderByCity(){
 		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByCity();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/{name}",method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<MedCenter> getByName(@PathVariable String name){
+	public ResponseEntity<MedCenter> getByName(@PathVariable String name){
 		MedCenter medCenter = this.medCenterRepository.getByName(name);
         return new ResponseEntity<>(medCenter, HttpStatus.OK);
     }
@@ -80,6 +84,7 @@ public class MedCenterController {
 	//cela logika u ovoj metodi je verovatno nepotrebna jer je implementirana u 
 	//getAll metodi koja se automatski pokrene pri otvaranju stranice http://localhost:8080/api/medCenter/all"
 	@RequestMapping(value = "/allByRating", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<MedCenter>> orderByRating(){
 		
 		List<MedCenter> all = this.medCenterRepository.findAll();

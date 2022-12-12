@@ -11,10 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-
 import com.example.ISA.security.auth.RestAuthenticationEntryPoint;
 import com.example.ISA.security.auth.TokenAuthenticationFilter;
 import com.example.ISA.security.service.impl.CustomUserDetailsService;
@@ -82,7 +80,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests().antMatchers("/auth/**").permitAll()		// /auth/**
 								//.antMatchers("/h2-console/**").permitAll()	// /h2-console/** ako se koristi H2 baza)
 								//.antMatchers("/api/foo").permitAll()
-								.antMatchers("/api/medCenter/allByName").permitAll()// /api/foo
+								//.antMatchers("/api/medCenter/allByName").permitAll()// /api/foo
+								.antMatchers("/api/medCenter/allByName").hasRole("PATIENT")
 								.antMatchers("/api/medCenter/allByCity").permitAll()
 								.antMatchers("/api/medCenter/allByRating").permitAll()
 								.antMatchers("/api/medCenter/{city}").permitAll()

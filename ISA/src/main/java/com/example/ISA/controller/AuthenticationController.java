@@ -53,9 +53,10 @@ public class AuthenticationController {
 		// AuthenticationException
 		AuthenticatedUserDTO authenticatedUserDTO = new AuthenticatedUserDTO();
         User u = userServiceImpl.findByEmail(authenticationRequest.getEmail());
-      
+        
         if(u!=null){
-           
+        	if(!u.isEnabled()) {System.out.println("User nije verifikovao nalog");}
+        	
                 Authentication authentication = authenticationManager
                         .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                                 authenticationRequest.getPassword()));
@@ -68,6 +69,7 @@ public class AuthenticationController {
                 String jwt = tokenUtils.generateToken(user.getEmail());
                 int expiresIn = tokenUtils.getExpiredIn();
                 authenticatedUserDTO = new AuthenticatedUserDTO(user.getId(), user.getRole(), user.getEmail(), new UserTokenState(jwt, expiresIn));
+                System.out.println("User ulogovan");
                 return new ResponseEntity<>(authenticatedUserDTO, HttpStatus.OK);
                 }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
