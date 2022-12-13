@@ -17,6 +17,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
+    	System.out.println("Rest Authentication Entry point greska.........");
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
     }
 }

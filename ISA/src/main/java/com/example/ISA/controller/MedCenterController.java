@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ import com.example.ISA.model.Rating;
 import com.example.ISA.repository.MedCenterRepository;
 import com.example.ISA.service.MedCenterService;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/medCenter")
 public class MedCenterController {
@@ -56,7 +57,7 @@ public class MedCenterController {
 	}
 	
 	@RequestMapping(value = "/allByName", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	//@PreAuthorize("hasRole('PATIENT')")
+	@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<MedCenter>> orderByName(){
 		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByName();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
