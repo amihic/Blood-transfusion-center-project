@@ -16,3 +16,23 @@ insert into med_user_authorities(med_user_id, authorities_id) values (3,2);
 insert into med_user_authorities(med_user_id, authorities_id) values (4,2);
 insert into med_user_authorities(med_user_id, authorities_id) values (5,2);
 insert into med_user_authorities(med_user_id, authorities_id) values (6,2);
+
+
+insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0, 0, 2);
+insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0, 0, 3);
+insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0, 0, 4);
+insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0, 0, 5);
+
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (1, '2022-12-22T08:30:00', 'false', 'true', 30, 2);
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (2, '2022-12-22T07:00:00', 'false', 'true', 30, 3);
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (3, '2022-12-22T07:30:00', 'false', 'true', 30, 4);
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (4, '2022-12-22T08:00:00', 'false', 'true', 30, 5);
+
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (5, '2022-12-20T09:00:00', 'false', 'false', 30, null);
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (6, '2022-12-22T09:30:00', 'false', 'false', 30, null);
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (7, '2022-12-22T10:00:00', 'false', 'false', 30, null);
+
+
+
+
+

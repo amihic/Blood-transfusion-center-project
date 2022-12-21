@@ -21,6 +21,7 @@ import { QuestionsForDonnorComponent } from './questions-for-donnor/questions-fo
 import { VerificationComponent } from './verification/verification.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from "./interceptor/TokenInterceptor";
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { TokenInterceptor } from "./interceptor/TokenInterceptor";
     MedCentersComponent,
     QuestionsForDonnorComponent,
     VerificationComponent,
-    LoginComponent
+    LoginComponent,
+    AppointmentsComponent
   ],
   imports: [
     BrowserModule,

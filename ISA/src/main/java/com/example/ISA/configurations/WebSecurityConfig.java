@@ -80,7 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests().antMatchers("/auth/**").permitAll()		// /auth/**
 								//.antMatchers("/h2-console/**").permitAll()	// /h2-console/** ako se koristi H2 baza)
 								//.antMatchers("/api/foo").permitAll()
-								//.antMatchers("/api/medCenter/allByName").permitAll()// /api/foo
+								.antMatchers("/api/medCenter/allByName").permitAll()// /api/foo
 								.antMatchers("/api/medCenter/allByName").hasRole("PATIENT")
 								.antMatchers("/api/medCenter/allByCity").permitAll()
 								.antMatchers("/api/medCenter/allByRating").permitAll()
@@ -94,6 +94,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 								.antMatchers("/auth/signup").permitAll()
 								.antMatchers("/api/QuestionsForDonnor").permitAll()
 								.antMatchers("/api/QuestionsForDonnor/all").permitAll()
+								
+								.antMatchers("/api/appointment").permitAll()
+								.antMatchers("/api/appointment/allByDateTime").permitAll()
+								.antMatchers("/api/appointment/cancel").permitAll()
+								.antMatchers("/api/appointment/cancel/{id}").permitAll()
+								.antMatchers("/api/appointment/all").permitAll()
+
+								
 								
 			// ukoliko ne zelimo da koristimo @PreAuthorize anotacije nad metodama kontrolera, moze se iskoristiti hasRole() metoda da se ogranici
 			// koji tip korisnika moze da pristupi odgovarajucoj ruti. Npr. ukoliko zelimo da definisemo da ruti 'admin' moze da pristupi

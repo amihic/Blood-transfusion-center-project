@@ -11,7 +11,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Patient extends User {
 	
-    @Column
+	private static final long serialVersionUID = 1L;
+
+	@Column
     private BloodType bloodType;
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

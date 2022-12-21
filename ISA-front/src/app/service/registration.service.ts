@@ -30,5 +30,4 @@ export class RegistrationService
     return this.http.put<User>(this.url2,verifiedUser);
   }
 
-
 }
