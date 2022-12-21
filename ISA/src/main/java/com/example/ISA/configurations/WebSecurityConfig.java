@@ -99,6 +99,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 								.antMatchers("/api/appointment/allByDateTime").permitAll()
 								.antMatchers("/api/appointment/cancel").permitAll()
 								.antMatchers("/api/appointment/cancel/{id}").permitAll()
+								.antMatchers("/api/appointment/reserve/{id}").permitAll()
 								.antMatchers("/api/appointment/all").permitAll()
 
 								

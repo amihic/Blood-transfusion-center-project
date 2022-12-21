@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -27,7 +28,7 @@ public class Patient extends User {
     
     @Column
     private int penalties;
-    
+  
 
 	public Patient() {
 		super();
@@ -102,6 +103,7 @@ public class Patient extends User {
 	public void setPenalties(int penalties) {
 		this.penalties = penalties;
 	}
+
     
     
 

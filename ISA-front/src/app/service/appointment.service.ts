@@ -10,6 +10,7 @@ import { Appointment } from "../model/appointment";
   {
     url = "http://localhost:8080/api/appointment/all";
     cancel_url = "http://localhost:8080/api/appointment/cancel";
+    reserve_url = "http://localhost:8080/api/appointment/reserve";
     sortByDateTime_url = "http://localhost:8080/api/appointment/allByDateTime";
     constructor(private http:HttpClient) {}
   
@@ -28,9 +29,9 @@ import { Appointment } from "../model/appointment";
       
     }
 
-    reserve()
+    reserveAppointment(id:number, appointment:Appointment)
     {
-        
+        return this.http.put<Appointment>(`${this.reserve_url}/` + `${id}`, appointment);
     }
   
   }

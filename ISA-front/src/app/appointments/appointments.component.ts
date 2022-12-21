@@ -12,6 +12,7 @@ export class AppointmentsComponent implements OnInit {
   appointments:Appointment[];
   appointment:Appointment;
   user:User;
+  patientId = 0;
 
   constructor(private appointmentService:AppointmentService) {
     this.appointments=[];
@@ -84,9 +85,11 @@ export class AppointmentsComponent implements OnInit {
     .subscribe((res: Appointment[]) => this.appointments=res);
   }
 
-  reserve()
+  reserve(id:number, appointment:Appointment)
   {
-    
+    this.appointmentService.reserveAppointment(id, appointment)
+    .subscribe((res: Appointment) => this.appointment=res);
+    //window.location.reload();
   }
 
   cancelReservation(id:number, appointment:Appointment)

@@ -52,15 +52,15 @@ public class AppointmentController {
 	}
 	
 	@PutMapping(value="/cancel/{patient_id}")
-	public ResponseEntity<Appointment> cancel(@PathVariable Long patient_id){
-		Appointment canceledAppointment = this.appointmentService.cancelAppointment(patient_id);
+	public ResponseEntity<Appointment> cancel(@PathVariable int patient_id, @RequestBody Appointment appointment){
+		Appointment canceledAppointment = this.appointmentService.cancelAppointment(patient_id, appointment);
 		return new ResponseEntity<>(canceledAppointment, HttpStatus.OK);
 	}
 	
 	
 	@PutMapping(value="/reserve/{patient_id}")
-	public ResponseEntity<Appointment> reserve(@PathVariable Long patient_id){
-		Appointment reservedAppointment = this.appointmentService.reserveAppointment(patient_id);
+	public ResponseEntity<Appointment> reserve(@PathVariable int patient_id, @RequestBody Appointment appointment){
+		Appointment reservedAppointment = this.appointmentService.reserveAppointment(patient_id, appointment);
 		return new ResponseEntity<>(reservedAppointment, HttpStatus.OK);
 	}
 

@@ -3,6 +3,7 @@ import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -88,6 +90,9 @@ public class User implements UserDetails{
     
     @Column
     private Timestamp lastPasswordResetDate;
+    
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private QuestionsForDonnor qfd;
    
 	public User() {
 		super();
@@ -116,6 +121,28 @@ public class User implements UserDetails{
 		this.enabled = enabled;
 		this.role = role;
 		this.authorities = authorities;
+	}
+	
+	public User(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
+			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean enabled, String role, List<Authority> authorities, QuestionsForDonnor qfd) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.phoneNumber = phoneNumber;
+		this.jmbg = jmbg;
+		this.gender = gender;
+		this.job = job;
+		this.info = info;
+		this.enabled = enabled;
+		this.role = role;
+		this.authorities = authorities;
+		this.qfd = qfd;
 	}
 
 	public int getId() {
@@ -261,6 +288,16 @@ public class User implements UserDetails{
     public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
+    
+    
+
+	public QuestionsForDonnor getQfd() {
+		return qfd;
+	}
+
+	public void setQfd(QuestionsForDonnor qfd) {
+		this.qfd = qfd;
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
