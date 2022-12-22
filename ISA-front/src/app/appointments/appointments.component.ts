@@ -3,6 +3,7 @@ import { Appointment } from '../model/appointment';
 import { User } from '../model/user';
 import { AppointmentService } from '../service/appointment.service';
 
+
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',

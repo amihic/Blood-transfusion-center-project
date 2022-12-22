@@ -59,7 +59,7 @@ public class AppointmentController {
 	
 	
 	@PutMapping(value="/reserve/{patient_id}")
-	public ResponseEntity<Appointment> reserve(@PathVariable int patient_id, @RequestBody Appointment appointment){
+	public ResponseEntity<Appointment> reserve(@PathVariable int patient_id, @RequestBody Appointment appointment) throws Exception{
 		Appointment reservedAppointment = this.appointmentService.reserveAppointment(patient_id, appointment);
 		return new ResponseEntity<>(reservedAppointment, HttpStatus.OK);
 	}

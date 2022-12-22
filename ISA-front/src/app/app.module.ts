@@ -24,6 +24,7 @@ import { TokenInterceptor } from "./interceptor/TokenInterceptor";
 import { AppointmentsComponent } from './appointments/appointments.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

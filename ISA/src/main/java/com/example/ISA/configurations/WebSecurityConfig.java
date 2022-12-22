@@ -95,12 +95,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 								.antMatchers("/api/QuestionsForDonnor").permitAll()
 								.antMatchers("/api/QuestionsForDonnor/all").permitAll()
 								
+								
 								.antMatchers("/api/appointment").permitAll()
 								.antMatchers("/api/appointment/allByDateTime").permitAll()
 								.antMatchers("/api/appointment/cancel").permitAll()
 								.antMatchers("/api/appointment/cancel/{id}").permitAll()
 								.antMatchers("/api/appointment/reserve/{id}").permitAll()
 								.antMatchers("/api/appointment/all").permitAll()
+								
+								
+								.antMatchers("/genrateAndDownloadQRCode/{codeText}/{width}/{height}").permitAll()
 
 								
 								
