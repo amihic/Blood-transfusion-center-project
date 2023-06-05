@@ -44,7 +44,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-	
+		
+		<!-- ukljucena podrska za QR code -->
+		<dependency>
+    		<groupId>com.google.zxing</groupId>
+    		<artifactId>core</artifactId>
+    		<version>3.4.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.google.zxing</groupId>
+    		<artifactId>javase</artifactId>
+    		<version>3.4.0</version>
+		</dependency>
 	
 	    <!-- ukljucena podrska za rad sa JWT -->
 		<dependency>

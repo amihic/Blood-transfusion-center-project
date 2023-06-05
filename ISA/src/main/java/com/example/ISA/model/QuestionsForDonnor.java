@@ -1,10 +1,15 @@
 package com.example.ISA.model;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,7 +29,7 @@ public class QuestionsForDonnor {
 	private String brojDavaoca;
 	
 	@Column
-	private String datum;
+	private LocalDateTime datum;
 	@Column
 	private String prezimeRoditeljIme;
 	@Column
@@ -135,14 +140,12 @@ public class QuestionsForDonnor {
 	private AnswerType q26;
 	
 	
-	
 	public QuestionsForDonnor() {
 		super();
 	}
 
 
-
-	public QuestionsForDonnor(Long id, String brojDavaoca, String datum, String prezimeRoditeljIme, String jmbg,
+	public QuestionsForDonnor(Long id, String brojDavaoca, LocalDateTime datum, String prezimeRoditeljIme, String jmbg,
 			String datumRodjenja, GenderType pol, String adresa, String opstina, String mesto, String kucniTel,
 			String poslovniTel, String mobilniTel, String preduzeceFakultetSkola, String zanimanje, Long brojDavanja,
 			String potpis, AnswerType q1, AnswerType q2, AnswerType q3, AnswerType q4, AnswerType q5, AnswerType q6,
@@ -237,13 +240,13 @@ public class QuestionsForDonnor {
 
 
 
-	public String getDatum() {
+	public LocalDateTime getDatum() {
 		return datum;
 	}
 
 
 
-	public void setDatum(String datum) {
+	public void setDatum(LocalDateTime datum) {
 		this.datum = datum;
 	}
 
@@ -882,7 +885,7 @@ public class QuestionsForDonnor {
 	public void setQ26(AnswerType q26) {
 		this.q26 = q26;
 	}
-	
+
 	
 	
 	

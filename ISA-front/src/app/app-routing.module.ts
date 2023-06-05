@@ -6,6 +6,7 @@ import { MedCentersComponent } from './med-centers/med-centers.component';
 import { QuestionsForDonnorComponent } from './questions-for-donnor/questions-for-donnor.component';
 import { VerificationComponent } from './verification/verification.component';
 import { LoginComponent } from './login/login.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'medCenters', component: MedCentersComponent},
   {path: 'questionsForDonnor', component: QuestionsForDonnorComponent},
   {path: 'verification', component: VerificationComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'appointments', component: AppointmentsComponent}
 
 ];
 

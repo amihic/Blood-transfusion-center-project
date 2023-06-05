@@ -69,7 +69,7 @@ public class AuthenticationController {
                 String jwt = tokenUtils.generateToken(user.getEmail());
                 int expiresIn = tokenUtils.getExpiredIn();
                 authenticatedUserDTO = new AuthenticatedUserDTO(user.getId(), user.getRole(), user.getEmail(), new UserTokenState(jwt, expiresIn));
-                System.out.println("User ulogovan");
+                System.out.println("Ulogovan je user " + authenticatedUserDTO.getEmail() + " sa rolom: " + authenticatedUserDTO.getRole() );
                 return new ResponseEntity<>(authenticatedUserDTO, HttpStatus.OK);
                 }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -6,12 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
 public class Patient extends User {
 	
-    @Column
+	private static final long serialVersionUID = 1L;
+
+	@Column
     private BloodType bloodType;
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -25,7 +28,7 @@ public class Patient extends User {
     
     @Column
     private int penalties;
-    
+  
 
 	public Patient() {
 		super();
@@ -100,6 +103,7 @@ public class Patient extends User {
 	public void setPenalties(int penalties) {
 		this.penalties = penalties;
 	}
+
     
     
 
