@@ -12,7 +12,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class AdminEmployee extends User {
    
-    @ManyToOne(fetch = FetchType.EAGER)
+	private static final long serialVersionUID = 1L;
+
+	@ManyToOne(fetch = FetchType.EAGER)
     private MedCenter medCenter;
    
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

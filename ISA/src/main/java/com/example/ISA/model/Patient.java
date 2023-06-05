@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+
 @Entity
 public class Patient extends User {
 	
@@ -28,6 +29,27 @@ public class Patient extends User {
 
 	public Patient() {
 		super();
+	}
+	
+	public Patient(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
+			 String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean enabled, String role, List<Authority> authorities) {
+		super();
+		setId(id);
+		setEmail(email);
+		setPassword(password);
+		setFirstName(firstName);
+		setLastName(lastName);
+		setAddress(address);
+		setCity(city);
+		setCountry(country);
+		setPhoneNumber(phoneNumber);
+		setJmbg(jmbg);
+		setGender(gender);
+		setJob(job);
+		setInfo(info);
+		setEnabled(enabled);
+		setRole(role);
+		setAuthorities(authorities);
 	}
 
 	public Patient(BloodType bloodType, Set<Complaint> complaints, int points, CategoryType category, int penalties) {

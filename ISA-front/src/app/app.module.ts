@@ -1,3 +1,9 @@
+import { CommonModule } from "@angular/common";
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -9,11 +15,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MedCentersComponent } from './med-centers/med-centers.component';
 import { QuestionsForDonnorComponent } from './questions-for-donnor/questions-for-donnor.component';
 import { VerificationComponent } from './verification/verification.component';
+import { LoginComponent } from './login/login.component';
+import { TokenInterceptor } from "./interceptor/TokenInterceptor";
 
 
 @NgModule({
@@ -24,7 +31,8 @@ import { VerificationComponent } from './verification/verification.component';
     HomeComponent,
     MedCentersComponent,
     QuestionsForDonnorComponent,
-    VerificationComponent
+    VerificationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,11 +42,21 @@ import { VerificationComponent } from './verification/verification.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatTabsModule
+
     
     
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

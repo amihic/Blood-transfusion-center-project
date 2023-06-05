@@ -1,27 +1,34 @@
 package com.example.ISA.model;
+import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.List;
 
-
-import java.util.*;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
-import javax.persistence.OneToOne;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity( name = "MedUser" )
-public class User {
-
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User implements UserDetails{
+	
+	private static final long serialVersionUID = 1L;
+	
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
    
     @Column
@@ -36,7 +43,6 @@ public class User {
     @Column
     private String lastName;
    
-    //@OneToOne(fetch = FetchType.EAGER)
     @Column
     private String address;
     
@@ -63,19 +69,36 @@ public class User {
     private String info;
     
     @Column
-    private boolean isActivated = false;
+    private String role;
     
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "med_user_authorities",
+            joinColumns = @JoinColumn(name = "med_user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
+    private List<Authority> authorities;
+    
+    /*@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> roles;
+    */
+    @Column
+    private boolean enabled;
+    
+    @Column
+    private Timestamp lastPasswordResetDate;
    
 	public User() {
 		super();
 	}
 	
 	 public User(User user) {
-	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo(), user.isActivated );
+	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo(), user.isEnabled(), user.getRole(), user.authorities);  ;
 	    }
 
 	public User(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
-			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean isActivated) {
+			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean enabled, String role, List<Authority> authorities) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -90,7 +113,9 @@ public class User {
 		this.gender = gender;
 		this.job = job;
 		this.info = info;
-		this.isActivated = isActivated;
+		this.enabled = enabled;
+		this.role = role;
+		this.authorities = authorities;
 	}
 
 	public int getId() {
@@ -199,13 +224,75 @@ public class User {
 		this.info = info;
 	}
 
-	public boolean isActivated() {
-		return isActivated;
+	
+	/*public List<Role> getRoles() {
+		return roles;
 	}
 
-	public void setActivated(boolean isActivated) {
-		this.isActivated = isActivated;
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}*/
+
+	public String getRole() {
+		return role;
 	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	@JsonIgnore
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
+    }
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Timestamp getLastPasswordResetDate() {
+        return lastPasswordResetDate;
+    }
+
+    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
+        this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return enabled;
+	}
+
+
    
    
 
