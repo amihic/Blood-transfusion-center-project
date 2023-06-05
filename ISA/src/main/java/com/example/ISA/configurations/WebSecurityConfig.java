@@ -20,6 +20,7 @@ import com.example.ISA.security.util.TokenUtils;
 
 
 
+@SuppressWarnings("deprecation")
 @Configuration
 // Ukljucivanje podrske za anotacije "@Pre*" i "@Post*" koje ce aktivirati autorizacione provere za svaki pristup metodi
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -80,7 +81,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests().antMatchers("/auth/**").permitAll()		// /auth/**
 								//.antMatchers("/h2-console/**").permitAll()	// /h2-console/** ako se koristi H2 baza)
 								//.antMatchers("/api/foo").permitAll()
-								.antMatchers("/api/medCenter/allByName").permitAll()// /api/foo
+
 								//.antMatchers("/api/medCenter/allByName").hasRole("PATIENT")
 								.antMatchers("/api/medCenter/allByCity").permitAll()
 								.antMatchers("/api/medCenter/allByRating").permitAll()
@@ -138,6 +139,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Ovim smo dozvolili pristup statickim resursima aplikacije
 		web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html",
 				"/**/*.css", "/**/*.js");
+		
 	}
 
 }

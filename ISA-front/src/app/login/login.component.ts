@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../model/user';
 import { AuthenticationService } from '../service/authentication.service';
 
 
@@ -12,14 +11,12 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 
 export class LoginComponent implements OnInit {
-
-  newUser: User | undefined;
+  
   email: any;
   password = '';
   invalidLogin = false;
   error:string='';
   idLoginUser:any;
-  loggedUser: Boolean | undefined;
 
   @Output()
   LogIn: EventEmitter<void> = new EventEmitter();
@@ -40,7 +37,7 @@ export class LoginComponent implements OnInit {
           console.log(data)
           this.LogIn.next();
           this.idLoginUser = sessionStorage.getItem('id');
-          this.router.navigate(['home']);
+          this.router.navigate(['medCenters']);
           this.invalidLogin = false
         },
         (error: { message: string | null; }) => {
