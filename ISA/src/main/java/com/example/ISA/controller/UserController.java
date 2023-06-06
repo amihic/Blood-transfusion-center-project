@@ -37,5 +37,4 @@ public class UserController {
         User user = this.userService.UpdateUser(u);
         return  new ResponseEntity<>(user,HttpStatus.OK);
     }
-    
 }
