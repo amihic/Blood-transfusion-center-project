@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         (error: { message: string | null; }) => {
           this.invalidLogin = true
           this.error = "Invalid email or password or your account is not active";
+          
         })
     }
   }
