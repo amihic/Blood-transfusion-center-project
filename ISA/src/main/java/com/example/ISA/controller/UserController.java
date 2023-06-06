@@ -15,11 +15,9 @@ import com.example.ISA.service.UserService;
 @RequestMapping("/api/user")
 public class UserController {
 
-	
 	@Autowired
 	private UserService userService;
-	
-	
+
 	@GetMapping(value = "/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
 
@@ -29,7 +27,6 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
         return new ResponseEntity<>(new User(user), HttpStatus.OK);
     }
 
