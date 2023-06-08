@@ -43,7 +43,28 @@ public class AppointmentController {
 		Appointment newAppointment = this.appointmentService.save(appointment);
 		return new ResponseEntity<>(newAppointment, HttpStatus.CREATED);
 	}
-	
+
+	@RequestMapping(value = "/visitingHistory/{patient_id}", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
+	public ResponseEntity<List<Appointment>> visitingHistory(@PathVariable int patient_id){
+		List<Appointment> visited = this.appointmentService.findVisitingHistory(patient_id);
+		return new ResponseEntity<>(visited, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/visitingHistoryByDate/{patient_id}", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
+	public ResponseEntity<List<Appointment>> visitingHistoryByDate(@PathVariable int patient_id){
+		List<Appointment> visitedByDate = this.appointmentService.findVisitingHistoryByDate(patient_id);
+		return new ResponseEntity<>(visitedByDate, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/futureApps/{patient_id}", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
+	public ResponseEntity<List<Appointment>> futureApps(@PathVariable int patient_id){
+		List<Appointment> visited = this.appointmentService.findFutureApps(patient_id);
+		return new ResponseEntity<>(visited, HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "/allByDateTime", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<Appointment>> orderByDateTime(){

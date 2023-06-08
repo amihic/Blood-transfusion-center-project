@@ -102,8 +102,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 								.antMatchers("/api/appointment/cancel/{id}").permitAll()
 								.antMatchers("/api/appointment/reserve/{id}").permitAll()
 								.antMatchers("/api/appointment/all").permitAll()
-								
-								
+								.antMatchers("/api/appointment/visitingHistory/{patient_id}").permitAll()
+								.antMatchers("/api/appointment/visitingHistoryByDate/{patient_id}").permitAll()
+								.antMatchers("/api/appointment/futureApps/{patient_id}").permitAll()
 								.antMatchers("/genrateAndDownloadQRCode/{codeText}/{width}/{height}").permitAll()
 
 								
