@@ -4,15 +4,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 
 @Entity
@@ -21,6 +13,9 @@ public class Appointment {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private MedCenter medCenter;
     
     @Column
     private LocalDateTime start;
@@ -63,6 +58,15 @@ public class Appointment {
 		this.deleted = deleted;
 		this.reserved = reserved;
 	}
+
+	public Appointment(MedCenter medCenter, LocalDateTime start, int duration, boolean deleted, boolean reserved) {
+		super();
+		this.medCenter = medCenter;
+		this.start = start;
+		this.duration = duration;
+		this.deleted = deleted;
+		this.reserved = reserved;
+	}
 	
 	public int getId() {
 		return id;
@@ -71,8 +75,15 @@ public class Appointment {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
+
+	public MedCenter getMedCenter() {
+		return medCenter;
+	}
+
+	public void setMedCenter(MedCenter medCenter) {
+		this.medCenter = medCenter;
+	}
+
 	public LocalDateTime getStart() {
 		return start;
 	}

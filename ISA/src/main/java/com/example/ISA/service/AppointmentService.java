@@ -2,6 +2,7 @@ package com.example.ISA.service;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -145,6 +146,45 @@ public class AppointmentService {
 		fileSystemResource);
 		javaMailSender.send(mimeMessage);
 		System.out.println("Email poslat!");
+	}
+
+	public List<Appointment> findVisitingHistory(int patient_id) {
+		List<Appointment> allApps = this.appointmentRepository.findAll();
+		List<Appointment> visited = new ArrayList<>();
+		for(Appointment app : allApps){
+			if(app.getPatient() != null) {
+				if (app.getPatient().getId() == patient_id && app.getStart().isBefore(LocalDateTime.now()) ) {
+					visited.add(app);
+				}
+			}
+		}
+		return visited;
+	}
+
+	public List<Appointment> findVisitingHistoryByDate(int patient_id) {
+		List<Appointment> allApps = this.appointmentRepository.findByOrderByStart();
+		List<Appointment> visited = new ArrayList<>();
+		for(Appointment app : allApps){
+			if(app.getPatient() != null) {
+				if (app.getPatient().getId() == patient_id && app.getStart().isBefore(LocalDateTime.now()) ) {
+					visited.add(app);
+				}
+			}
+		}
+		return visited;
+	}
+
+	public List<Appointment> findFutureApps(int patient_id) {
+		List<Appointment> allApps = this.appointmentRepository.findAll();
+		List<Appointment> future = new ArrayList<>();
+		for(Appointment app : allApps){
+			if(app.getPatient() != null) {
+				if (app.getPatient().getId() == patient_id && app.getStart().isAfter(LocalDateTime.now()) ) {
+					future.add(app);
+				}
+			}
+		}
+		return future;
 	}
 
 /*

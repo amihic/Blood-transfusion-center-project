@@ -32,7 +32,7 @@ insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0
 insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0, 0, 4);
 insert into patient(blood_type, category, penalties, points, id) values (0, 0, 0, 0, 5);
 
-insert into appointment(id, start, deleted, reserved, duration, patient_id) values (1, '2022-12-26T08:30:00', 'false', 'true', 30, null);
+insert into appointment(id, start, deleted, reserved, duration, patient_id) values (1, '2022-12-26T08:30:00', 'false', 'true', 30, 3);
 insert into appointment(id, start, deleted, reserved, duration, patient_id) values (2, '2022-12-26T07:00:00', 'false', 'true', 30, 3);
 insert into appointment(id, start, deleted, reserved, duration, patient_id) values (3, '2022-12-26T07:30:00', 'false', 'true', 30, 4);
 insert into appointment(id, start, deleted, reserved, duration, patient_id) values (4, '2022-12-26T08:00:00', 'false', 'false', 30, null);
