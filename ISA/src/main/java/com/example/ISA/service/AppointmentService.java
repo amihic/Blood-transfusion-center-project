@@ -148,12 +148,12 @@ public class AppointmentService {
 		System.out.println("Email poslat!");
 	}
 
-	public List<Appointment> findVisitingHistory(int patient_id) {
+	public List<Appointment> findVisitingHistory(String email) {
 		List<Appointment> allApps = this.appointmentRepository.findAll();
 		List<Appointment> visited = new ArrayList<>();
 		for(Appointment app : allApps){
 			if(app.getPatient() != null) {
-				if (app.getPatient().getId() == patient_id && app.getStart().isBefore(LocalDateTime.now()) ) {
+				if (app.getPatient().getEmail().equals(email) && app.getStart().isBefore(LocalDateTime.now()) ) {
 					visited.add(app);
 				}
 			}
@@ -174,12 +174,12 @@ public class AppointmentService {
 		return visited;
 	}
 
-	public List<Appointment> findFutureApps(int patient_id) {
+	public List<Appointment> findFutureApps(String email) {
 		List<Appointment> allApps = this.appointmentRepository.findAll();
 		List<Appointment> future = new ArrayList<>();
 		for(Appointment app : allApps){
 			if(app.getPatient() != null) {
-				if (app.getPatient().getId() == patient_id && app.getStart().isAfter(LocalDateTime.now()) ) {
+				if (app.getPatient().getEmail().equals(email) && app.getStart().isAfter(LocalDateTime.now()) ) {
 					future.add(app);
 				}
 			}

@@ -35,6 +35,10 @@ export class LoginComponent implements OnInit {
       this.loginservice.authenticate(this.email, this.password).subscribe(
         (data: any) => {
           console.log(data)
+
+          //sessionStorage.setItem('email', this.email);
+          //sessionStorage.setItem('id', data.id);
+
           this.LogIn.next();
           this.idLoginUser = sessionStorage.getItem('id');
           this.router.navigate(['medCenters']);
@@ -43,7 +47,7 @@ export class LoginComponent implements OnInit {
         (error: { message: string | null; }) => {
           this.invalidLogin = true
           this.error = "Invalid email or password or your account is not active";
-          
+
         })
     }
   }

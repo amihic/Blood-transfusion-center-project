@@ -1,0 +1,45 @@
+.table{
+    text-align: center;
+    margin:auto;
+    border: 3px dashed #a00606;
+    border-radius: 10px;
+  }
+  .naslov{
+    text-align: center;
+  }
+
+  .reserve-cancel{
+    text-align: center;
+  }
+
+  .btn{
+    background-color: #d15757;
+    border: none;
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .btn:hover {background-color: #d12424;}
+
+  .sort-btn{
+    background-color: #d15757;
+    color: white;
+    padding: 13px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    left: 100px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    position: relative;
+    display: inline-block;
+    left: 335px;
+  }
+
+  .sort-btn:hover {background-color: #ca2f2f;}

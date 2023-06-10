@@ -57,14 +57,14 @@ public class MedCenterController {
 	}
 	
 	@RequestMapping(value = "/allByName", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	@PreAuthorize("hasRole('PATIENT')")
+	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<MedCenter>> orderByName(){
 		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByName();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/allByCity", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	@PreAuthorize("hasRole('PATIENT')")
+	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<MedCenter>> orderByCity(){
 		List<MedCenter> medCenters = this.medCenterRepository.findByOrderByCity();
 		return new ResponseEntity<>(medCenters, HttpStatus.OK);
