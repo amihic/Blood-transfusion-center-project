@@ -22,6 +22,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from "./interceptor/TokenInterceptor";
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { FutureAppointmentsComponent } from './future-appointments/future-appointments.component';
 
 
 
@@ -35,7 +36,8 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     QuestionsForDonnorComponent,
     VerificationComponent,
     LoginComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    FutureAppointmentsComponent
   ],
   imports: [
     BrowserModule,
