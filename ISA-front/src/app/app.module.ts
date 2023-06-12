@@ -23,6 +23,8 @@ import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from "./interceptor/TokenInterceptor";
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { FutureAppointmentsComponent } from './future-appointments/future-appointments.component';
+import { HistoryAppointmentsComponent } from './history-appointments/history-appointments.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -37,7 +39,8 @@ import { FutureAppointmentsComponent } from './future-appointments/future-appoin
     VerificationComponent,
     LoginComponent,
     AppointmentsComponent,
-    FutureAppointmentsComponent
+    FutureAppointmentsComponent,
+    HistoryAppointmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +60,8 @@ import { FutureAppointmentsComponent } from './future-appointments/future-appoin
     
     
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
+  providers: [DatePipe,{
+    provide: HTTP_INTERCEPTORS, 
     useClass: TokenInterceptor,
     multi: true
   }],

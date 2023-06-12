@@ -51,10 +51,10 @@ public class AppointmentController {
 		return new ResponseEntity<>(visited, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/visitingHistoryByDate/{patient_id}", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	@RequestMapping(value = "/visitingHistoryByDate/{email}", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	//@PreAuthorize("hasRole('PATIENT')")
-	public ResponseEntity<List<Appointment>> visitingHistoryByDate(@PathVariable int patient_id){
-		List<Appointment> visitedByDate = this.appointmentService.findVisitingHistoryByDate(patient_id);
+	public ResponseEntity<List<Appointment>> visitingHistoryByDate(@PathVariable String email){
+		List<Appointment> visitedByDate = this.appointmentService.findVisitingHistoryByDate(email);
 		return new ResponseEntity<>(visitedByDate, HttpStatus.OK);
 	}
 
@@ -65,6 +65,13 @@ public class AppointmentController {
 		return new ResponseEntity<>(visited, HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/futureAppsByDate/{email}", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	//@PreAuthorize("hasRole('PATIENT')")
+	public ResponseEntity<List<Appointment>> futureAppointmentsByDate(@PathVariable String email){
+		List<Appointment> visitedByDate = this.appointmentService.findFutureAppointmentsByDate(email);
+		return new ResponseEntity<>(visitedByDate, HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "/allByDateTime", method = RequestMethod.GET,produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	//@PreAuthorize("hasRole('PATIENT')")
 	public ResponseEntity<List<Appointment>> orderByDateTime(){
@@ -72,16 +79,16 @@ public class AppointmentController {
 		return new ResponseEntity<>(appointments, HttpStatus.OK);
 	}
 	
-	@PutMapping(value="/cancel/{patient_id}")
-	public ResponseEntity<Appointment> cancel(@PathVariable int patient_id, @RequestBody Appointment appointment){
-		Appointment canceledAppointment = this.appointmentService.cancelAppointment(patient_id, appointment);
+	@PutMapping(value="/cancel/{email}")
+	public ResponseEntity<Appointment> cancel(@PathVariable String email, @RequestBody Appointment appointment){
+		Appointment canceledAppointment = this.appointmentService.cancelAppointment(email, appointment);
 		return new ResponseEntity<>(canceledAppointment, HttpStatus.OK);
 	}
 	
 	
-	@PutMapping(value="/reserve/{patient_id}")
-	public ResponseEntity<Appointment> reserve(@PathVariable int patient_id, @RequestBody Appointment appointment) throws Exception{
-		Appointment reservedAppointment = this.appointmentService.reserveAppointment(patient_id, appointment);
+	@PutMapping(value="/reserve/{email}")
+	public ResponseEntity<Appointment> reserve(@PathVariable String email, @RequestBody Appointment appointment) throws Exception{
+		Appointment reservedAppointment = this.appointmentService.reserveAppointment(email, appointment);
 		return new ResponseEntity<>(reservedAppointment, HttpStatus.OK);
 	}
 
