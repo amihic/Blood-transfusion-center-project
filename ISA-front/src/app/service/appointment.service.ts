@@ -15,6 +15,9 @@ import { Appointment } from "../model/appointment";
     individualUrl = "http://localhost:8080/api/appointment/futureApps/${encodeURIComponent(email)}";
 
     historyUrl = "http://localhost:8080/api/appointment/visitingHistory";
+    historyByDateUrl = "http://localhost:8080/api/appointment/visitingHistoryByDate";
+    futureUrl = "http://localhost:8080/api/appointment/futureApps";
+    futureByDateUrl = "http://localhost:8080/api/appointment/futureAppsByDate";
 
     individualSortByDateTime_url = "http://localhost:8080/api/appointment/{email}/allByDateTime";
     constructor(private http:HttpClient) {}
@@ -28,35 +31,34 @@ import { Appointment } from "../model/appointment";
         return this.http.get<Appointment[]>(this.sortByDateTime_url);
     }
 
-
-    getIndividualHistoryAppointmentsByDateAndTime()
+    getIndividualHistoryAppointmentsByDateAndTime(tEmail:String)
     {
-        return this.http.get<Appointment[]>(this.sortByDateTime_url);
+        return this.http.get<Appointment[]>(`${this.historyByDateUrl}/${tEmail}`);
     }
 
-    getIndividualAllAppointmentsByDateAndTime()
+    getIndividualFutureAppointmentsByDateAndTime(tEmail:String)
     {
-        return this.http.get<Appointment[]>(this.sortByDateTime_url);
+        return this.http.get<Appointment[]>(`${this.futureByDateUrl}/${tEmail}`);
     }
-
 
     getIndividualHistoryAppointments(tEmail:String)
     {
         return this.http.get<Appointment[]>(`${this.historyUrl}/${tEmail}`);
     }
 
-
-
-    
-    cancelAppointment(id:number, appointment:Appointment)
+    getIndividualFutureAppointments(tEmail:String)
     {
-      return this.http.put<Appointment>(`${this.cancel_url}/` + `${id}`, appointment);
-      
+        return this.http.get<Appointment[]>(`${this.futureUrl}/${tEmail}`);
+    }
+    
+    cancelAppointment(tEmail:String, appointment:Appointment)
+    {
+      return this.http.put<Appointment>(`${this.cancel_url}/` + `${tEmail}`, appointment);
     }
 
-    reserveAppointment(id:number, appointment:Appointment)
+    reserveAppointment(tEmail:String, appointment:Appointment)
     {
-        return this.http.put<Appointment>(`${this.reserve_url}/` + `${id}`, appointment);
+      return this.http.put<Appointment>(`${this.reserve_url}/` + `${tEmail}`, appointment);
     }
   
   }

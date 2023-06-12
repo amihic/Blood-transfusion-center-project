@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() {}
+  tEmail:String;
+  constructor() {
+    this.tEmail =  String(sessionStorage.getItem('email'))
+  }
 
   ngOnInit(): void {}
   

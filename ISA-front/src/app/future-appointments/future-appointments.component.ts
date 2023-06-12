@@ -78,21 +78,23 @@ export class FutureAppointmentsComponent implements OnInit {
   getAppointments()
   {
     this.tEmail =  String(sessionStorage.getItem('email'))
-    this.appointmentService.getIndividualHistoryAppointments(this.tEmail)
+    this.appointmentService.getIndividualFutureAppointments(this.tEmail)
     .subscribe((res: Appointment[]) => this.appointments=res);
   }
 
-  getAppointmentsByDateAndTime()
+  getIndividualFutureAppointmentsByDateAndTime()
   {
-    this.appointmentService.getIndividualAllAppointmentsByDateAndTime()
+    this.tEmail =  String(sessionStorage.getItem('email'))
+    this.appointmentService.getIndividualFutureAppointmentsByDateAndTime(this.tEmail)
     .subscribe((res: Appointment[]) => this.appointments=res);
   }
 
-  cancelReservation(id:number, appointment:Appointment)
+  cancelReservation(tEmail:String, appointment:Appointment)
   {
-    //this.appointmentService.cancelAppointment(id, appointment)
-    //.subscribe((res: Appointment) => this.appointment=res);
-    //window.location.reload();
+    this.tEmail =  String(sessionStorage.getItem('email'))
+    this.appointmentService.cancelAppointment(tEmail, appointment)
+    .subscribe((res: Appointment) => this.appointment=res);
+    window.location.reload();
   }
 
 }

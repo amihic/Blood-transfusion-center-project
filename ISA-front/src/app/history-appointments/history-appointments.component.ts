@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Appointment } from '../model/appointment';
 import { User } from '../model/user';
 import { AppointmentService } from '../service/appointment.service';
-
+import moment from 'moment';
 
 @Component({
-  selector: 'app-appointments',
-  templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.css']
+  selector: 'app-history-appointments',
+  templateUrl: './history-appointments.component.html',
+  styleUrls: ['./history-appointments.component.css']
 })
-export class AppointmentsComponent implements OnInit {
+export class HistoryAppointmentsComponent implements OnInit {
+
   appointments:Appointment[];
   appointment:Appointment;
+  tEmail:String;
   user:User;
   patientId = 0;
-  tEmail:String;
 
-  constructor(private appointmentService:AppointmentService) {
+  constructor(private route: ActivatedRoute, private appointmentService:AppointmentService) {
     this.appointments=[];
-    this.tEmail = "";
+    this.tEmail = '';
     this.appointment = new Appointment
       (
         {
@@ -71,36 +73,28 @@ export class AppointmentsComponent implements OnInit {
       );
    }
 
+   formatDate(dateString: string): string {
+    const momentDate = moment(dateString);
+    return momentDate.format('DD.MM.YYYY HH:mm');
+  }
+
   ngOnInit(): void {
     this.getAppointments();
   }
 
-
   getAppointments()
   {
-    this.appointmentService.getAllAppointments()
+    this.tEmail =  String(sessionStorage.getItem('email'))
+    this.appointmentService.getIndividualHistoryAppointments(this.tEmail)
     .subscribe((res: Appointment[]) => this.appointments=res);
   }
 
   getAppointmentsByDateAndTime()
   {
-    this.appointmentService.getAllAppointmentsByDateAndTime()
+    this.tEmail =  String(sessionStorage.getItem('email'))
+    this.appointmentService.getIndividualHistoryAppointmentsByDateAndTime(this.tEmail)
     .subscribe((res: Appointment[]) => this.appointments=res);
   }
 
-  reserve(appointment:Appointment)
-  {
-    this.tEmail =  String(sessionStorage.getItem('email'))
-    this.appointmentService.reserveAppointment(this.tEmail, appointment)
-    .subscribe((res: Appointment) => this.appointment=res);
-    window.location.reload();
-  }
-
-  cancelReservation(appointment:Appointment)
-  {
-    this.tEmail =  String(sessionStorage.getItem('email'))
-    this.appointmentService.cancelAppointment(this.tEmail, appointment)
-    .subscribe((res: Appointment) => this.appointment=res);
-    window.location.reload();
-  }
+  
 }

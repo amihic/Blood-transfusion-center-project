@@ -8,6 +8,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { LoginComponent } from './login/login.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { FutureAppointmentsComponent } from './future-appointments/future-appointments.component';
+import { HistoryAppointmentsComponent } from './history-appointments/history-appointments.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -17,7 +18,14 @@ const routes: Routes = [
   {path: 'verification', component: VerificationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'appointments', component: AppointmentsComponent},
-  {path: 'futureAppointments', component: FutureAppointmentsComponent}
+
+  {path: 'futureAppointments', component: FutureAppointmentsComponent},
+  {path: 'futureAppointments/:email', component: FutureAppointmentsComponent},
+  {path: 'futureAppointmentsByDate/:email', component: FutureAppointmentsComponent},
+  
+  {path: 'historyAppointments', component: HistoryAppointmentsComponent},
+  {path: 'historyAppointments/:email', component: HistoryAppointmentsComponent},
+  {path: 'historyAppointmentsByDate/:email', component: HistoryAppointmentsComponent}
 
 ];
 

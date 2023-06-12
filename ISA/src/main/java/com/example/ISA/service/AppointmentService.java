@@ -59,13 +59,13 @@ public class AppointmentService {
 			return this.appointmentRepository.save(appointment);
 	}
 
-	public Appointment cancelAppointment(int patient_id, Appointment appointment) {
+	public Appointment cancelAppointment(String email, Appointment appointment) {
 		
 		if(!LocalDateTime.now().isAfter(appointment.getStart().minusHours(24))) {
-			if(appointment.getPatient().getId()==patient_id){
+			if(appointment.getPatient().getEmail().equals(email)){
 				appointment.setReserved(false);
 				appointment.setPatient(null);
-				System.out.println("Termin otkazan");
+				System.out.println("Termin "+ appointment.getStart() + " otkazan");
 				return this.appointmentRepository.save(appointment);
 			}
 		}
@@ -95,14 +95,14 @@ public class AppointmentService {
 		return null;*/
 	}
 
-	public Appointment reserveAppointment(int patient_id, Appointment appointment) throws Exception {
+	public Appointment reserveAppointment(String email, Appointment appointment) throws Exception {
 		List<Appointment> appointments = this.appointmentRepository.findAll();
 		List<Patient> patients = this.patientRepository.findAll();
 		//Patient patient = new Patient();
 		
 		for(Patient pat:patients) {
 		for(Appointment app:appointments) {
-			if(pat.getId()==patient_id && !app.isReserved() && appointment.getStart().equals(app.getStart())) {
+			if(pat.getEmail().equals(email) && !app.isReserved() && appointment.getStart().equals(app.getStart())) {
 				if(pat.getQfd()!=null && pat.getQfd().getDatum().isBefore(appointment.getStart().minusMonths(6))) {
 					app.setReserved(true);
 					app.setPatient(pat);
@@ -161,17 +161,30 @@ public class AppointmentService {
 		return visited;
 	}
 
-	public List<Appointment> findVisitingHistoryByDate(int patient_id) {
+	public List<Appointment> findVisitingHistoryByDate(String email) {
 		List<Appointment> allApps = this.appointmentRepository.findByOrderByStart();
 		List<Appointment> visited = new ArrayList<>();
 		for(Appointment app : allApps){
 			if(app.getPatient() != null) {
-				if (app.getPatient().getId() == patient_id && app.getStart().isBefore(LocalDateTime.now()) ) {
+				if (app.getPatient().getEmail().equals(email) && app.getStart().isBefore(LocalDateTime.now()) ) {
 					visited.add(app);
 				}
 			}
 		}
 		return visited;
+	}
+
+	public List<Appointment> findFutureAppointmentsByDate(String email) {
+		List<Appointment> allApps = this.appointmentRepository.findByOrderByStart();
+		List<Appointment> future = new ArrayList<>();
+		for(Appointment app : allApps){
+			if(app.getPatient() != null) {
+				if (app.getPatient().getEmail().equals(email) && app.getStart().isAfter(LocalDateTime.now()) ) {
+					future.add(app);
+				}
+			}
+		}
+		return future;
 	}
 
 	public List<Appointment> findFutureApps(String email) {

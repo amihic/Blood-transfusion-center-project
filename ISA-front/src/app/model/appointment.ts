@@ -1,4 +1,6 @@
 import { Patient } from "./patient";
+import { DatePipe } from '@angular/common';
+
 
 interface AppointmentInterface{
 
@@ -26,4 +28,6 @@ export class Appointment implements AppointmentInterface{
         this.patient=obj.patient;
 
     } 
+
+    
 }

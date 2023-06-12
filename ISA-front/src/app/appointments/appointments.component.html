@@ -17,21 +17,13 @@
             <td>{{appointment.start}}</td>
             <td>{{appointment.duration}}min</td>
             <td>{{appointment.reserved ? 'reserved' : 'free'}}</td>
-            <td><button class="btn" (click)="reserve(patientId, appointment)">Reserve</button></td>
-            <td><button class="btn" (click)="cancelReservation(patientId, appointment)">Cancel reservation</button></td>
+            <td><button class="btn" (click)="reserve(appointment)">Reserve</button></td>
         </tr>
     </tbody>
 </table>
 <p></p>
     <button class="sort-btn" (click)="getAppointmentsByDateAndTime()">Sort</button>
 
-
-<div class="reserve-cancel">
-    <h1></h1>
-    <label for="info"><b>Confirm your id to reserve or cancel successfully:</b></label>
-    <h1></h1>
-    <input type="text" placeholder="Enter your id" id="id" name="id" [(ngModel)]="patientId">
-</div>
 
 </body>
 </html>
