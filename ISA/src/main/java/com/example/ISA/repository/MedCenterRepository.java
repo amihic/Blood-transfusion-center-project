@@ -26,5 +26,6 @@ public interface MedCenterRepository extends JpaRepository<MedCenter,String> {
 	MedCenter getByCity(String city);
 
 	MedCenter getByAvgRate(Double avgRate);
-	
+
+    MedCenter findByName(String medCenter);
 }
