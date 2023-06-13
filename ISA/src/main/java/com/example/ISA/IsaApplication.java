@@ -1,6 +1,10 @@
 package com.example.ISA;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import com.example.ISA.model.User;
+import com.example.ISA.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,6 +27,9 @@ public class IsaApplication implements CommandLineRunner{
 	
 	@Autowired
 	private RatingRepository ratingRepository;
+
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private AuthorityRepository authorityRepository;
@@ -30,6 +37,7 @@ public class IsaApplication implements CommandLineRunner{
 	public static void main(String[] args)  {
 		
 		SpringApplication.run(IsaApplication.class, args);
+
 	}
 	@Override
 	public void run(String[] args) throws Exception
@@ -39,8 +47,18 @@ public class IsaApplication implements CommandLineRunner{
 		
 		authorityRepository.save(newAuthority1);
 		authorityRepository.save(newAuthority2);
-		
-*/
+
+
+		// Implementacija 'funkcije' koja ce se izvrsiti svakog prvog dana u mesecu
+*/		LocalDate currentDate = LocalDate.now();
+		if (currentDate.getDayOfMonth() == 1) {
+			List<User> allUsers = this.userRepository.findAll();
+			for(User user : allUsers) {
+				user.setPenalties(0);
+				this.userRepository.save(user);
+			}
+			System.out.println("Svi penali svakog korisnika su resetovani na 0");
+		}
 		
 				
 		Rating newRating1 = new Rating(1,10,null);
