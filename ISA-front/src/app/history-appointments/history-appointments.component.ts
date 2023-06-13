@@ -45,6 +45,10 @@ export class HistoryAppointmentsComponent implements OnInit {
             job:"",
             info:"",
             isActivated:true,
+            //bloodType:"",
+            //points:0,
+            //penalties:0,
+            //category:"",
           })
           
 
@@ -67,7 +71,8 @@ export class HistoryAppointmentsComponent implements OnInit {
           gender:"male",
           job:"",
           info:"",
-          isActivated:false
+          isActivated:false,
+          penalties:0
 
         }
       );

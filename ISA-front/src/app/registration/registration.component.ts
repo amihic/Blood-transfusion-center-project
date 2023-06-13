@@ -33,7 +33,8 @@ export class RegistrationComponent implements OnInit {
           gender:"",
           job:"",
           info:"",
-          isActivated:false
+          isActivated:false,
+          penalties:0
 
         }
       );

@@ -31,7 +31,8 @@ export class VerificationComponent implements OnInit {
           gender:"male",
           job:"",
           info:"",
-          isActivated:false
+          isActivated:false,
+          penalties:0
 
         }
       );
