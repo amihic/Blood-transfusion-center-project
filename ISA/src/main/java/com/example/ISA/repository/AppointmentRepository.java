@@ -13,5 +13,4 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 
 	List<Appointment> findByOrderByStart();
 
-
 }

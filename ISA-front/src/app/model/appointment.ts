@@ -1,5 +1,6 @@
 import { Patient } from "./patient";
 import { DatePipe } from '@angular/common';
+import { MedCenter } from "./medCenter";
 
 
 interface AppointmentInterface{
@@ -10,6 +11,7 @@ interface AppointmentInterface{
     deleted:boolean;
     reserved:boolean;
     patient:Patient;
+    medCenter:MedCenter;
 }
 export class Appointment implements AppointmentInterface{
     id:number;
@@ -18,6 +20,7 @@ export class Appointment implements AppointmentInterface{
     deleted:boolean;
     reserved:boolean;
     patient:Patient;
+    medCenter:MedCenter;
     
     constructor(obj:AppointmentInterface){
         this.id=obj.id;
@@ -26,6 +29,7 @@ export class Appointment implements AppointmentInterface{
         this.deleted=obj.deleted;
         this.reserved=obj.reserved;
         this.patient=obj.patient;
+        this.medCenter=obj.medCenter;
 
     } 
 

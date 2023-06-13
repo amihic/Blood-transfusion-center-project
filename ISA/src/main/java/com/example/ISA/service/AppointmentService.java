@@ -8,6 +8,7 @@ import java.util.List;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import com.example.ISA.model.MedCenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
@@ -20,12 +21,16 @@ import com.example.ISA.model.Patient;
 import com.example.ISA.model.QRCodeGenerator;
 import com.example.ISA.repository.AppointmentRepository;
 import com.example.ISA.repository.PatientRepository;
+import com.example.ISA.repository.MedCenterRepository;
 
 @Service
 public class AppointmentService {
 	
 	@Autowired
 	private AppointmentRepository appointmentRepository;
+
+	@Autowired
+	private MedCenterRepository medCenterRepository;
 	
 	@Autowired
 	private PatientRepository patientRepository;

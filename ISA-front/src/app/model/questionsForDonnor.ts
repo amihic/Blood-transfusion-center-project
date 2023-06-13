@@ -1,7 +1,7 @@
+import { Patient } from "./patient";
 
 
 interface QuestionsForDonnorInterface{
-
     brojDavaoca:string;
     datum:string;
     prezimeRoditeljIme:string;
