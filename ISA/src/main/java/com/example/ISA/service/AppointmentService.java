@@ -102,7 +102,7 @@ public class AppointmentService {
 		
 		for(Patient pat:patients) {
 		for(Appointment app:appointments) {
-			if(pat.getEmail().equals(email) && !app.isReserved() && appointment.getStart().equals(app.getStart())) {
+			if(pat.getEmail().equals(email) && pat.getPenalties()<3 && !app.isReserved() && appointment.getStart().equals(app.getStart())) {
 				if(pat.getQfd()!=null && pat.getQfd().getDatum().isBefore(appointment.getStart().minusMonths(6))) {
 					app.setReserved(true);
 					app.setPatient(pat);
