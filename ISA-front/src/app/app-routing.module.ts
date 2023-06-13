@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { FutureAppointmentsComponent } from './future-appointments/future-appointments.component';
 import { HistoryAppointmentsComponent } from './history-appointments/history-appointments.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -25,7 +26,9 @@ const routes: Routes = [
   
   {path: 'historyAppointments', component: HistoryAppointmentsComponent},
   {path: 'historyAppointments/:email', component: HistoryAppointmentsComponent},
-  {path: 'historyAppointmentsByDate/:email', component: HistoryAppointmentsComponent}
+  {path: 'historyAppointmentsByDate/:email', component: HistoryAppointmentsComponent},
+
+  {path: 'profile/:email', component: ProfileComponent},
 
 ];
 

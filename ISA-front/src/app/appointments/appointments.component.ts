@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../model/appointment';
 import { User } from '../model/user';
 import { AppointmentService } from '../service/appointment.service';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
@@ -43,6 +45,10 @@ export class AppointmentsComponent implements OnInit {
             job:"",
             info:"",
             isActivated:true,
+            //bloodType:"",
+            //points:0,
+            //penalties:0,
+            //category:"",
           })
           
 
@@ -65,7 +71,8 @@ export class AppointmentsComponent implements OnInit {
           gender:"male",
           job:"",
           info:"",
-          isActivated:false
+          isActivated:false,
+          penalties:0
 
         }
       );

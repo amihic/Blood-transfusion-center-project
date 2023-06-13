@@ -25,6 +25,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { FutureAppointmentsComponent } from './future-appointments/future-appointments.component';
 import { HistoryAppointmentsComponent } from './history-appointments/history-appointments.component';
 import { DatePipe } from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -40,7 +41,8 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     AppointmentsComponent,
     FutureAppointmentsComponent,
-    HistoryAppointmentsComponent
+    HistoryAppointmentsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            
+        }
+
+        .profile img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border-color: #a00606;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            border-color: #a00606;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .profile-email {
+            font-size: 16px;
+            color: gray;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+        }
+
+        .profile-skills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .profile-skills span {
+            background-color: lightgray;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <img src="user-profile-image.jpg" alt="User Profile Image User Profile Image User Profile Image User Profile Image User Profile Image User Profile Image">
+        <div class="profile-info">
+            <div class="profile-name">{{profile.user.firstName}} {{profile.user.lastName}}</div>
+            <div class="profile-email">{{profile.user.email}}</div>
+            <div class="profile-bio">First name:       {{profile.user.firstName}}</div>
+            <div class="profile-bio">Last name:        {{profile.user.lastName}}</div>
+            <div class="profile-bio">Address:        {{profile.user.address}}</div>
+            <div class="profile-bio">City:        {{profile.user.city}}</div>
+            <div class="profile-bio">Country:        {{profile.user.country}}</div>
+            <div class="profile-bio">Phone number:        {{profile.user.phoneNumber}}</div>
+            <div class="profile-bio">Gender:        {{profile.user.gender}}</div>
+            <div class="profile-bio">JMBG:        {{profile.user.jmbg}}</div>
+            <div class="profile-bio">Job:        {{profile.user.job}}</div>
+            <div class="profile-bio">Info:        {{profile.user.info}}</div>
+            <div class="profile-bio">Profile category: {{profile.category}}</div>
+            <div class="profile-bio">Points:           {{profile.points}}</div>
+            <div class="profile-bio">Penalties:        {{profile.user.penalties}}</div> 
+        </div>
+    </div>
+</body>
+</html>

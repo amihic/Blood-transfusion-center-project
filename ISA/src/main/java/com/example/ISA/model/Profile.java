@@ -38,6 +38,13 @@ public class Profile {
 		this.points = points;
 	}
 
+	public Profile(User user, CategoryType category, int points) {
+		super();
+		this.user = user;
+		this.category = category;
+		this.points = points;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -69,7 +76,6 @@ public class Profile {
 	public void setPoints(int points) {
 		this.points = points;
 	}
-    
-    
+
 
 }

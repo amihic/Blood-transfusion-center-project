@@ -72,6 +72,9 @@ public class User implements UserDetails{
     
     @Column
     private String role;
+
+	@Column
+	private int penalties;
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "med_user_authorities",
@@ -99,11 +102,11 @@ public class User implements UserDetails{
 	}
 	
 	 public User(User user) {
-	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo(), user.isEnabled(), user.getRole(), user.authorities);  ;
+	       this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(),user.getPhoneNumber(), user.getJmbg(),user.getGender(),user.getJob() ,user.getInfo(), user.isEnabled(), user.getRole(), user.getPenalties(), user.authorities);  ;
 	    }
 
 	public User(int id, String email, String password, String firstName, String lastName, String address, String city, String country,
-			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean enabled, String role, List<Authority> authorities) {
+			String phoneNumber, String jmbg, GenderType gender, String job, String info, boolean enabled, String role, int penalties, List<Authority> authorities) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -120,6 +123,7 @@ public class User implements UserDetails{
 		this.info = info;
 		this.enabled = enabled;
 		this.role = role;
+		this.penalties = penalties;
 		this.authorities = authorities;
 	}
 	
@@ -288,8 +292,14 @@ public class User implements UserDetails{
     public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
-    
-    
+
+	public int getPenalties() {
+		return penalties;
+	}
+
+	public void setPenalties(int penalties) {
+		this.penalties = penalties;
+	}
 
 	public QuestionsForDonnor getQfd() {
 		return qfd;

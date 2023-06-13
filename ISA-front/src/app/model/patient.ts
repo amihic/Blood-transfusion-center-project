@@ -20,6 +20,12 @@ interface PatientInterface{
     info:string;
     isActivated:boolean;
 
+    //bloodType:string;
+    //points:number;
+    //penalties:number;
+    //complaints:Complaint[];
+    //category:string;
+
 
     
 }
@@ -40,6 +46,12 @@ export class Patient implements PatientInterface{
     info:string;
     isActivated:boolean;
 
+    //bloodType:string;
+    //points:number;
+    //penalties:number;
+    //complaints:Complaint[];
+    //category:string;
+
 
     constructor(obj:PatientInterface){
         this.id=obj.id;
@@ -57,6 +69,10 @@ export class Patient implements PatientInterface{
         this.job=obj.job;
         this.info=obj.info;
         this.isActivated=obj.isActivated;
+        //this.bloodType=obj.bloodType;
+        //this.points=obj.points;
+        //this.penalties=obj.penalties;
+        //this.category=obj.category;
 
 
     } 

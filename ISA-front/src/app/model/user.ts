@@ -19,6 +19,8 @@ interface UserInterface{
     job:string;
     info:string;
     isActivated:boolean;
+    penalties:number;
+    
 
 
     
@@ -39,6 +41,7 @@ export class User implements UserInterface{
     job:string;
     info:string;
     isActivated:boolean;
+    penalties:number;
 
 
     constructor(obj:UserInterface){
@@ -57,6 +60,7 @@ export class User implements UserInterface{
         this.job=obj.job;
         this.info=obj.info;
         this.isActivated=obj.isActivated;
+        this.penalties=obj.penalties;
 
 
     } 

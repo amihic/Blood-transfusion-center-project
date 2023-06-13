@@ -26,8 +26,7 @@ public class Patient extends User {
     @Column
     private CategoryType category;
     
-    @Column
-    private int penalties;
+
   
 
 	public Patient() {
@@ -55,13 +54,12 @@ public class Patient extends User {
 		setAuthorities(authorities);
 	}
 
-	public Patient(BloodType bloodType, Set<Complaint> complaints, int points, CategoryType category, int penalties) {
+	public Patient(BloodType bloodType, Set<Complaint> complaints, int points, CategoryType category) {
 		super();
 		this.bloodType = bloodType;
 		this.complaints = complaints;
 		this.points = points;
 		this.category = category;
-		this.penalties = penalties;
 	}
 
 	public BloodType getBloodType() {
@@ -96,13 +94,7 @@ public class Patient extends User {
 		this.category = category;
 	}
 
-	public int getPenalties() {
-		return penalties;
-	}
 
-	public void setPenalties(int penalties) {
-		this.penalties = penalties;
-	}
 
     
     

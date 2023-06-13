@@ -97,6 +97,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 								.antMatchers("/api/QuestionsForDonnor/all").permitAll()
 
 								.antMatchers("/api/complaint").permitAll()
+
+								.antMatchers("/api/profile/{email}").permitAll()
 								
 								.antMatchers("/api/appointment").permitAll()
 								.antMatchers("/api/appointment/allByDateTime").permitAll()
