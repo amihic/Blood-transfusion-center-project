@@ -58,7 +58,7 @@ import { Appointment } from "../model/appointment";
 
     reserveAppointment(tEmail:String, appointment:Appointment)
     {
-      return this.http.put<Appointment>(`${this.reserve_url}/` + `${tEmail}`, appointment);
+      return this.http.put<Appointment>(`${this.reserve_url}/` + `${tEmail}/`, appointment);
     }
   
   }
