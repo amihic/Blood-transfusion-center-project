@@ -18,9 +18,9 @@ public class ComplaintController {
     @Autowired
     private ComplaintService complaintService;
 
-    @RequestMapping(method = RequestMethod.POST, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Complaint> createComplaint(@RequestBody Complaint complaint){
-        Complaint newComplaint = this.complaintService.save(complaint);
+    @RequestMapping(value ="/{email}/{medCenter}", method = RequestMethod.POST, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Complaint> createComplaint(@PathVariable String email, @PathVariable String medCenter, @RequestBody Complaint complaint){
+        Complaint newComplaint = this.complaintService.save(email, complaint, medCenter);
         return new ResponseEntity<>(newComplaint, HttpStatus.CREATED);
     }
 

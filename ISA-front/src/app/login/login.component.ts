@@ -36,12 +36,9 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           console.log(data)
 
-          //sessionStorage.setItem('email', this.email);
-          //sessionStorage.setItem('id', data.id);
-
           this.LogIn.next();
           this.idLoginUser = sessionStorage.getItem('id');
-          this.router.navigate(['medCenters']);
+          this.router.navigate(['profile/:email']);
           this.invalidLogin = false
         },
         (error: { message: string | null; }) => {

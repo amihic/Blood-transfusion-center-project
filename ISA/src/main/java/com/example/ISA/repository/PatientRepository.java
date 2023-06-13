@@ -8,4 +8,5 @@ import com.example.ISA.model.Patient;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
+    Patient findByEmail(String email);
 }
