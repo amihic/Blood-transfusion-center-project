@@ -60,7 +60,7 @@ public class IsaApplication implements CommandLineRunner{
 			System.out.println("Svi penali svakog korisnika su resetovani na 0");
 		}
 		
-				
+		/*
 		Rating newRating1 = new Rating(1,10,null);
 		Rating newRating2 = new Rating(2,9,null);
         Rating newRating3 = new Rating(3,9,null);
@@ -116,6 +116,6 @@ public class IsaApplication implements CommandLineRunner{
         medCenterRepository.save(newMedCenter3);
         medCenterRepository.save(newMedCenter4);
         medCenterRepository.save(newMedCenter5);
-        
+        */
     }
 }

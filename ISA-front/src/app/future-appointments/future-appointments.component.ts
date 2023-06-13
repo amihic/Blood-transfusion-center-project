@@ -27,6 +27,15 @@ export class FutureAppointmentsComponent implements OnInit {
           duration:30,
           deleted: false,
           reserved: false,
+          medCenter:({
+            id: 1,
+              name:"",
+              street:"",
+              city:"",
+              country:"",
+              avgRate:0,
+              description:""
+          }),
           patient: ({
             id:1,
             email:"",

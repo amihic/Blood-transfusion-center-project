@@ -7,6 +7,7 @@
   <table class="table table-striped table-bordered">
     <thead>
         <tr>            
+            <th><u>Medicine Center</u></th>
             <th><u>Date and Time</u></th>
             <th><u>Duration</u></th>
             <th><u>Cancel</u></th>
@@ -14,6 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let appointment of appointments">
+            <td>{{appointment.medCenter.name}}</td>
             <td>{{appointment.start}}</td>
             <td>{{appointment.duration}}min</td>
             <td><button class="btn" (click)="cancelReservation(tEmail, appointment)">Cancel reservation</button></td>
