@@ -104,12 +104,12 @@ export class AppointmentsComponent implements OnInit {
     .subscribe((res: Appointment[]) => this.appointments=res);
   }
 
-  reserve(appointment:Appointment)
+  reserve(tEmail:String, appointment:Appointment)
   {
     this.tEmail =  String(sessionStorage.getItem('email'))
-    this.appointmentService.reserveAppointment(this.tEmail, appointment)
+    this.appointmentService.reserveAppointment(tEmail, appointment)
     .subscribe((res: Appointment) => this.appointment=res);
-    window.location.reload();
+    //window.location.reload();
   }
 
   cancelReservation(appointment:Appointment)
