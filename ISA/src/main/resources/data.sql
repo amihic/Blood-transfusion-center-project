@@ -76,7 +76,7 @@ insert into appointment(id, start, deleted, reserved, duration, patient_id, med_
 insert into appointment(id, start, deleted, reserved, duration, patient_id, med_center_id) values (4, '2022-12-26T08:00:00', 'false', 'false', 30, null, 4);
 
 insert into appointment(id, start, deleted, reserved, duration, patient_id, med_center_id) values (5, '2022-12-23T09:00:00', 'false', 'false', 30, null, 4);
-insert into appointment(id, start, deleted, reserved, duration, patient_id, med_center_id) values (6, '2023-12-26T09:30:00', 'false', 'false', 30, 3, 3);
+insert into appointment(id, start, deleted, reserved, duration, patient_id, med_center_id) values (6, '2023-12-26T09:30:00', 'false', 'true', 30, 3, 3);
 insert into appointment(id, start, deleted, reserved, duration, patient_id, med_center_id) values (7, '2023-12-26T10:00:00', 'false', 'false', 30, null, 4);
 
 

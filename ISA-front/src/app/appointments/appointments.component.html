@@ -19,7 +19,7 @@
             <td>{{appointment.start}}</td>
             <td>{{appointment.duration}}min</td>
             <td>{{appointment.reserved ? 'reserved' : 'free'}}</td>
-            <td><button class="btn" (click)="reserve(appointment)">Reserve</button></td>
+            <td><button class="btn" (click)="reserve(tEmail, appointment)">Reserve</button></td>
         </tr>
     </tbody>
 </table>

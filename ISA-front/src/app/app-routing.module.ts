@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'verification', component: VerificationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'appointments', component: AppointmentsComponent},
+  {path: 'appointments/:email', component: AppointmentsComponent},
 
   {path: 'futureAppointments', component: FutureAppointmentsComponent},
   {path: 'futureAppointments/:email', component: FutureAppointmentsComponent},
